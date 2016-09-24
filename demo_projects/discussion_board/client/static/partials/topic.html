@@ -1,0 +1,149 @@
+<div class="main_body">
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/dashboard">Discussion Board</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/dashboard">Dashboard</a></li>
+            <li><a href="#" ng-click="logout()">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+		<!-- contains topic (creator, topic, and description) of the page -->
+		<div class="jumbotron" id="topic_block">
+			<fieldset>
+				<legend>
+					<div class="row">
+						<div class="topic_owner">
+							<h3><a href="#/user/{{ topic.username }}">{{ topic.username }}</a> posted a topic <span ng-if="topic.updatedAt != topic.createdAt"><small><i>updated on</i></small></span> <small>{{ topic.updatedAt | date:"h:mm a M/d/yy" }}</small></h3>
+						</div>
+						<div class="topic_update_delete" ng-if="topic.username == username">
+							<button type="button" class="btn btn-sm btn-info" ng-clikc="topic_update(topic._id)" data-toggle="modal" data-target="#topic_update_modal">Update</button>
+							<button type="button" class="btn btn-sm btn-warning" ng-click="topic_delete(topic._id)" data-toggle="modal" data-target="#topic_delete_modal">Delete</button>
+						</div>
+					</div>
+				</legend>
+				<h4><b>{{ topic.topic }}</b></h4>
+				<h4>{{ topic.description }}</h4>
+
+			</fieldset>
+		</div>
+
+		<!-- contains new post form -->
+		<div class="jumbotron" id="new_post_block">
+			<h4>Post your answer here...</h4>
+			<form ng-submit="create_post(topic._id)">
+				<div ng-if="postError">
+					<div ng-repeat="error in postError" class="alert alert-danger fade in">
+						<strong>Error!</strong> {{ error.message }}
+					</div>
+				</div>
+				<textarea class="form-control" rows="5" ng-model="newPost.post"></textarea>
+				<button class="btn btn-success btn-block" type="submit">Click to add a new post</button>
+			</form>
+		</div>
+
+		<div class="main_content">
+			<div class="posts" ng-repeat="post in posts | orderBy:'-createdAt' track by $index">
+
+				<div class="post">
+					<h4><strong><a href="#/user/{{ post.username }}">{{ post.username }}</a></strong> <small>{{ post.updatedAt | date:"h:mm a M/d/yy" }}</small></h4>
+					<h4 class="button_like"><button class="btn btn-primary btn-xs" ng-click="like_post($index)">Like</button> <span class="like_number">{{ post.like}}</span></h4>
+					<h4 class="button_dislike"><button class="btn btn-danger btn-xs" ng-click="dislike_post($index)">Dislike</button> <span class="dislike_number">{{ post.dislike}}</span></h4>
+					<h2><small>{{ post.post }}</small></h2>
+				</div>
+
+				<div class="comments">
+					<div class="comment" ng-repeat="comment in post._comments">
+						<h4><strong><a href="#/user/{{ comment.username }}">{{ comment.username }}</a></strong> <small>{{ comment.updatedAt | date:"h:mm a M/d/yy" }}</small></h4>
+						<h2><small>{{ comment.comment }}</small></h2>
+					</div>
+
+					<button class="btn btn-lg btn-info btn-block comment_button" type="submit" ng-click="comment_form = !comment_form" ng-hide="comment_form">Click to comment!</button>
+
+					<!-- comment form -->
+					<form class="comment_form" ng-submit="create_comment($index)" ng-show="comment_form">
+						<div ng-if="commentError">
+							<div ng-repeat="error in commentError" class="alert alert-danger fade in">
+								<strong>Error!</strong> {{ error.message }}
+							</div>
+						</div>
+						<textarea class="form-control" rows="5" ng-model="post.newComment"></textarea>
+						<button class="btn btn-sm btn-info btn-block" type="submit">Click to add a new comment</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div> <!-- /container -->
+</div>
+
+
+<!-- Topic Delete Modal -->
+<div class="modal fade" id="topic_delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+			</div>
+		<div class="modal-body">
+			Are you sure you want to delete this topic?
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-danger" ng-click="delete_topic(topic._id)" data-dismiss="modal">Confirm Delete</button>
+		</div>
+		</div>
+	</div>
+</div>
+
+<!-- Topic Update Modal -->
+<div class="modal fade" id="topic_update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Update this Topic</h4>
+			</div>
+			<form class="form-horizontal" ng-submit="update_topic(topic._id)">
+				<div class="modal-body">
+					<!-- displaying topic errors if there are any. -->
+					<div ng-if="updateErrors">
+						<div ng-repeat="error in updateErrors" class="alert alert-danger fade in topicErrors">
+							<strong>Error!</strong> {{ error.message }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="topic" class="col-sm-2 control-label">Topic</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="topic" ng-value="topic.topic" placeholder="{{ topic.topic }}" ng-model="updateTopic.topic">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description" class="col-sm-2 control-label">Description</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="6" id="description" placeholder="{{ topic.description }}" ng-model="updateTopic.description"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

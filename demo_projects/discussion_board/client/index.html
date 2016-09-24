@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<title>Discussion Board</title>
+		<!-- load jquery -->
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		<!-- load bootstrap javascript -->
+		<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+		<!-- load bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+		<!-- load style CSS -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+		<!-- load angularJS and its dependencies -->
+		<script type="text/javascript" src="/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="/angular-cookies/angular-cookies.min.js"></script>
+
+		<!-- load angular.module and config -->
+		<script type="text/javascript" src="/assets/app.js"></script>
+		<!-- load factories: usersFactory, topicsFactory -->
+		<script type="text/javascript" src="/assets/factories/usersFactory.js"></script>
+		<script type="text/javascript" src="/assets/factories/topicsFactory.js"></script>
+		<!-- load controllers: UserController, DashboardController, TopicController, ProfileController -->
+		<script type="text/javascript" src="/assets/controllers/UserController.js"></script>
+		<script type="text/javascript" src="/assets/controllers/DashboardController.js"></script>
+		<script type="text/javascript" src="/assets/controllers/TopicController.js"></script>
+		<script type="text/javascript" src="/assets/controllers/ProfileController.js"></script>
+	</head>
+	<body>
+		<div ng-view="">
+			<!-- partials to be loaded in this div. -->
+		</div>
+	</body>
+</html>
