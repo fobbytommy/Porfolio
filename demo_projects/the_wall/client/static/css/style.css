@@ -1,0 +1,87 @@
+body {
+	background-color: #e6f5ff;
+}
+.login_reg_body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.wall_body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.registerErrors {
+	margin: 0px;
+	padding-top:1px;
+	padding-bottom: 1px;
+	word-wrap: break-word;
+}
+#registerErrorsDiv {
+	margin-bottom: 10px;
+}
+textarea {
+	resize: vertical;
+}
+.posts {
+	background-color: #ffcccc;
+	word-wrap: break-word;
+	border-radius: 5px;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+.comments {
+	margin-left: 110px;
+}
+.comment {
+	background-color: #ccffcc;
+	padding: 15px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+.post {
+	background-color: #ccccff;
+	padding: 15px;
+	border-radius: 7px;
+	margin-bottom: 10px;
+}
+.comment_button {
+	padding-top: 59px;
+	padding-bottom: 59px;
+}
