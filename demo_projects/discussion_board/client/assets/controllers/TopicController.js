@@ -63,7 +63,7 @@ app.controller("TopicController", ['$scope', '$location', '$cookies', '$routePar
 		if ($scope.username == post_owner) {
 			// cannot vote your own stuff...
 			// display error
-			console.log("you cannot like your own post!");
+			alert("you cannot like your own post!");
 		}
 		else {
 			var post_id = $scope.posts[$scope.posts.length - 1 - index]._id;
@@ -78,7 +78,7 @@ app.controller("TopicController", ['$scope', '$location', '$cookies', '$routePar
 		if ($scope.username == post_owner) {
 			// cannot vote your own stuff...
 			// display error
-			console.log("you cannot dislike your own post!");
+			alert("you cannot dislike your own post!");
 		}
 		else {
 			var post_id = $scope.posts[$scope.posts.length - 1 - index]._id;
