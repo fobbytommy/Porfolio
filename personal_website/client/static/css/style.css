@@ -1,0 +1,160 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  	color: #5a5a5a;
+	margin-bottom: 50px;
+	background-color: #e6f2ff;
+}
+
+.top_for_nav{
+	margin-top: 100px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 50px;
+	/*background-color: red;*/
+	padding-top: 15px;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+
+/* Featurettes
+------------------------- */
+
+
+.featurette-divider {
+  margin: 60px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+
+/* custom styling */
+.me_photo {
+	height: 140px;
+	width: 140px;
+}
+#main_content {
+	outline: 1px dotted red;
+	margin-top: 80px;
+}
+
+
+
+/********************* HOME PAGE ********************************************/
+#home_h1 {
+	font-size: 5em;
+}
+#home_jumbotron {
+	padding: 48px 150px;
+}
+.home_icon {
+	margin-right: 5px;
+}
+
+/********************* END OF HOME PAGE STYLING ****************************/
+
+
+/********************* RESUME PAGE ********************************************/
+.resume_div {
+	margin-bottom: 20px;
+}
+
+/********************* END OF RESUME PAGE STYLING ****************************/
+
+/************************* CONTACT PAGE **************************************/
+.contact_main {
+	background-color: #666;
+	color: #fff;
+	padding: 10px 30px 30px;
+	border-radius: 5px;
+
+}
+
+.email-reveal {
+	border: 1px solid #5b0b7f;
+	background-color: #720e9e;
+	border-radius: 4px;
+	color: white;
+	padding: 9px 8px 8px 8px;
+	margin: 0px;
+}
+.email-reveal:hover {
+	border: 1px solid #b300b3;
+	font-weight: 600;
+
+}
+.phone-reveal {
+	border: 1px solid #2f477a;
+	background-color: #3b5998;
+	border-radius: 4px;
+	color: white;
+	padding: 9px 8px 8px 8px;
+	margin: 0px;
+}
+.phone-reveal:hover {
+	border: 1px solid #3333ff;
+	font-weight: 600;
+}
+
+/************************** end of CONTACT page ******************************/
