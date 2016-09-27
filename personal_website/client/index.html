@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Tommy Oh | Full Stack Developer</title>
+		<link rel="icon" type="image/x-icon" href="/static/img/my_face.ico">
 
 		<!-- load jquery -->
 		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
@@ -44,6 +45,15 @@
 						templateUrl: "static/partials/contact.html",
 						controller: 'ContactController'
 					})
+					.when('/skills', {
+						templateUrl: "static/partials/skill_storage.html"
+					})
+					.when('/self', {
+						templateUrl: "static/partials/self_qa.html"
+					})
+					.when('/daily', {
+						templateUrl: "static/partials/daily_plan.html"
+					})
 					.otherwise({
 						redirectTo: '/home'
 					});
@@ -57,11 +67,12 @@
 						console.log(newMessage);
 						$http.post('/contact/email', newMessage).then(
 							function success(response) {
-								console.log(response.data.error);
+								// if there is an error key, send the error.
 								if (typeof(response.data.error) != 'undefined') {
 									callback(false, response.data.error);
 								}
 								else {
+									// else send back the success message
 									callback(true, response.data.success);
 								}
 							},
@@ -83,7 +94,7 @@
 				$scope.send_email = function() {
 					contactsFactory.send_email($scope.newMessage, function(status, response) {
 						if (status == false) {
-							// show flash message for error							
+							// show flash message for error
 							Flash.create('danger', response);
 						}
 						else {

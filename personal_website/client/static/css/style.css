@@ -87,7 +87,7 @@ body {
   .navbar-wrapper .navbar {
     border-radius: 4px;
   }
-
+}
 
 /* custom styling */
 .me_photo {
@@ -158,3 +158,22 @@ body {
 }
 
 /************************** end of CONTACT page ******************************/
+
+
+/****************************** Self Q & A page ******************************/
+.self_question {
+	background-color: blue;
+	border: 1px solid black;
+	overflow-y: auto;
+	height: 100px;
+}
+.self_question h5 {
+
+	background-color: skyblue;
+}
+/**************************** end of Self Q & A ******************************/
+
+/**************************** Daily Plan page *********************************/
+
+
+/************************ end of Daily Plan page ******************************/
