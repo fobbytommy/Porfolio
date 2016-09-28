@@ -36,7 +36,8 @@
 						templateUrl: "static/partials/home.html"
 					})
 					.when('/me', {
-						templateUrl: "static/partials/me.html"
+						templateUrl: "static/partials/me.html",
+						controller: 'MeController'
 					})
 					.when('/resume', {
 						templateUrl: "static/partials/resume.html"
@@ -105,6 +106,22 @@
 					});
 				}
 
+			}]);
+
+			app.controller('MeController', ['$scope', function($scope) {
+
+				$scope.showMeaning = false;
+				$scope.hoverInCerca = function() {
+					$scope.showMeaning = true;
+					$scope.stylePhoto = {
+						'border': '8px groove #ffca51',
+					};
+				}
+
+				$scope.hoverOutMeaning = function() {
+					$scope.showMeaning = false;
+					$scope.stylePhoto = {};
+				}
 			}]);
 
 		</script>

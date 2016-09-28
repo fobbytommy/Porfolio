@@ -38,42 +38,29 @@
 </div>
 
 
-<div class="container">
-
-      <div class="row top_for_nav">
-		  <div class="col-md-5 col-md-push-7">
-            <img class="featurette-image center-block img-circle" src="/static/img/me.jpg" alt="me" height="280" width="280">
-          </div>
-        <div class="col-md-7 col-md-pull-5">
-			<h3 class="featurette-heading">CERCA TROVA <span class="text-muted">seek and ye shall find</span></h3>
-          	<p><b>Hi! I'm Tommy. I love coding, thinking, and running. I'm almost always learning and smiling!</b></p>
-		  	<p>
-			  	Right now, I am working to prove myself that I can make some awesome web contents. Prior to taking an online coding bootcamp at Coding Dojo, I was a Sales / Project engineer at Mitsubishi Electric, US - Elevator & Escalator Division.
-			</p>
-		  	<p>
-		  	 	Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo
-		  	</p>
+<div class="container top_for_nav">
+	<div class="row">
+		<div class="col-md-5 col-md-push-7 me_photo_div">
+			<img class="featurette-image center-block img-circle" src="/static/img/me.jpg" alt="me" height="280" width="280" ng-style="stylePhoto">
+			<h2 class="text-center" ng-show="showMeaning">IM READY.</h2>
+		</div>
+		<div class="col-md-7 col-md-pull-5 me_content_div">
 			<p>
-				<b>TL;DR</b>
-				<ul>
-					<li>Graduate from UCSD with a bachelor in Aerospace Engineering</li>
-					<li>Worked for Mitsubishi Electric for 2 years.</li>
-					<li>Left to search for a dream job / opportunity</li>
-					<li>Joined an online coding bootcamp on May 2016 to Sep 2016</li>
-					<li>Learned Web Fundamental / Python stack / MEAN stack</li>
-					<li>Fall in love with full stack development and now looking for many opportunities to shine.</li>
-				</ul>
+				<span>Hi there! My name is Tommy Oh. Don't worry, I'm actually really nice! I'm a full stack web developer who specializes in MEAN. And I'm available for hire!</span>
+			</p>
+			<p>
+				Prior to taking an online coding bootcamp at Coding Dojo, I was a Sales / Project Engineer at Mitsubishi Electric, US Inc. - Elevator & Escalator Division. After two years of working, I decided to leave the company to seek for other opportunities. I wanted to do things and be stressed about things that I loved about. I finally found it.
+			</p>
+			<div class="cerca_trova text-center">
+				<h3 ng-mouseover="hoverInCerca()" ng-hide="showMeaning">CERCA TROVA</h3>
+				<h3 ng-mouseleave="hoverOutMeaning()" ng-show="showMeaning"><span class="text-muted">seek and ye shall find</span></h3>
+			</div>
+			<p>
+				Right now, I'm just working to prove that I can create some awesome web contents. Each time I struggle, I become a better developer. I'm confindent that, along with the skills obtained from the bootcamp, my previous experience and discipline in engineering are more than enough to qualify as any developer's position. I am a self-motivated person with the abilities to work both individually and as part of a team. I'm a perfectionist who cares most about his projects. I can't wait to put myself out there and show everyone how good I am. I have nothing to lose and I'm not scared of anything.
+			</p>
+			<p>
+				I'm currently in Fullerton, California. When I'm not coding at my desk, I love to run outside preparing for the upcoming half marathons.
 			</p>
 		</div>
-
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-
-
-
-    </div><!-- /.container -->
+	</div>
+</div><!-- /.container -->
