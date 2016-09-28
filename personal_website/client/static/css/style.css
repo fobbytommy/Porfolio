@@ -1,13 +1,21 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
+/* -----------GLOBAL STYLES -------------------------------------------------*/
 /* Padding below the footer and lighter body text */
 
 body {
-  	color: #5a5a5a;
-	margin-bottom: 50px;
-	background-color: #e6f2ff;
-}
+  	color: white;
 
+	background: url('/static/img/bg.jpg') repeat center center fixed;
+	background-size: cover;
+}
+/* for custom transparent button*/
+.btn-transparent {
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    /*border: none;*/
+    cursor:pointer;
+    overflow: hidden;
+    /*outline:none;*/
+}
 .top_for_nav{
 	margin-top: 100px;
 }
@@ -17,7 +25,7 @@ body {
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
-	height: 50px;
+	height: 43px;
 	/*background-color: red;*/
 	padding-top: 15px;
 }
@@ -87,6 +95,8 @@ body {
   .navbar-wrapper .navbar {
     border-radius: 4px;
   }
+
+
 }
 
 /* custom styling */
@@ -102,14 +112,31 @@ body {
 
 
 /********************* HOME PAGE ********************************************/
-#home_h1 {
-	font-size: 5em;
-}
+
 #home_jumbotron {
-	padding: 48px 150px;
+	margin-top: 70px;
+	word-wrap: break-word;
+	background-color: Transparent;
+	opacity: 0.73;
+	/*background: url('/static/img/bg.jpg') repeat center center fixed;*/
+	background-size: cover;
 }
-.home_icon {
-	margin-right: 5px;
+#home_jumbotron h1, #home_jumbotron p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-shadow: #1b0721 5px 5px 5px;
+}
+#home_jumbotron p {
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 1.10em;
+	opacity: 0.9;
+}
+/* "get to know me" button custom */
+.know_me_btn {
+	border: 1px #3e104c groove;
+	border-radius: 20px;
+}
+.know_me_btn:hover {
+	color: #ffe568;
 }
 
 /********************* END OF HOME PAGE STYLING ****************************/
