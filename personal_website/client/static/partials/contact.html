@@ -38,38 +38,33 @@
 </div>
 
 
-<div class="container">
-
-	<div class="contact_main top_for_nav">
-		<h2>Contact</h2>
-
-			<div class="row  contant_div">
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<button class="btn btn-block btn-social btn-yahoo" ng-click="reveal_email = !reveal_email" ng-hide="reveal_email">
-		   				<i class="fa fa-envelope-square" aria-hidden="true"></i>Click to see my email address
-		 			</button>
-					<h5 class="email-reveal text-center"  ng-show="reveal_email">tommyhyungjinoh@gmail.com</h5>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<button class="btn btn-block btn-social btn-facebook" ng-click="reveal_phone = !reveal_phone" ng-hide="reveal_phone">
-		   				<i class="fa fa-phone-square" aria-hidden="true"></i>Click to see my phone number
-					</button>
-					<h5 class="phone-reveal text-center" ng-show="reveal_phone">818 - 568 - 4095</h5>
-				</div>
+<div class="container top_for_nav">
+	<hr class="hr_style">
+	<div class="contact_div_main">
+		<div class="row">
+			<div class="contact_info_div col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<button class="btn btn-block btn btn-yahoo" ng-click="reveal_email = !reveal_email" ng-hide="reveal_email">
+					<i class="fa fa-envelope" aria-hidden="true"></i>   email address
+				</button>
+				<h5 class="email-reveal text-center"  ng-show="reveal_email">tommyhyungjinoh@gmail.com</h5>
 			</div>
-
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6  col-lg-offset-3">
-					<button class="btn btn-block btn-social btn-flickr" data-toggle="modal" data-target="#send_email_modal">
-		   				<i class="fa fa-heart" aria-hidden="true"></i>Can't wait? Message me now!
-					</button>
-				</div>
+			<div class="contact_info_div col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<button class="btn btn-block btn-facebook" ng-click="reveal_phone = !reveal_phone" ng-hide="reveal_phone">
+					<i class="fa fa-phone" aria-hidden="true"></i>   phone number
+				</button>
+				<h5 class="phone-reveal text-center" ng-show="reveal_phone">818 - 568 - 4095</h5>
 			</div>
-
-
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-md-offset-3 col-lg-offset-3">
+				<button class="btn btn-block btn-flickr" data-toggle="modal" data-target="#send_email_modal">
+					<i class="fa fa-heart" aria-hidden="true"></i>     can't wait?
+				</button>
+			</div>
+		</div>
 	</div>
 
-
+	<hr class="hr_style">
 </div><!-- /.container -->
 
 
@@ -78,7 +73,7 @@
 <!-- Modal for email form -->
 <div class="modal fade" id="send_email_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
+		<div class="modal-content modal_email_div">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Email me now!</h4>
@@ -87,7 +82,7 @@
 				<div class="modal-body">
 					<!-- displaying topic errors if there are any. -->
 					<!-- displaying flash if there are any. -->
-					<flash-message duration="30000" show-close="true"></flash-message>
+					<flash-message duration="30000" show-close="false"></flash-message>
 					<div class="form-group">
 						<label for="subject" class="col-sm-2 control-label">Subject</label>
 						<div class="col-sm-10">

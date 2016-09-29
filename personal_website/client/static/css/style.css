@@ -161,7 +161,7 @@ body {
 .resume_div {
 	margin-bottom: 30px;
 }
-hr.resume_hr_style {
+hr.hr_style {
 	border: 0;
     height: 2px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
@@ -171,21 +171,36 @@ hr.resume_hr_style {
 /*--------------------- END OF RESUME PAGE STYLING ---------------------------*/
 
 /************************* CONTACT PAGE **************************************/
-.contact_main {
-	background-color: #666;
-	color: #fff;
-	padding: 10px 30px 30px;
-	border-radius: 5px;
-
+.contact_div_main {
+	padding: 0px 23px;
+	margin-bottom: 40px;
 }
-
+.contact_div_main button {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	word-wrap: break-word;
+	border-radius:420px/124px;
+	opacity: .78;
+}
+.contact_div_main button i {
+	text-align: center;
+	word-wrap: break-word;
+}
+.contact_info_div {
+	padding: 0px 15px;
+	margin-bottom: 24px;
+}
 .email-reveal {
 	border: 1px solid #5b0b7f;
 	background-color: #720e9e;
 	border-radius: 4px;
-	color: white;
-	padding: 9px 8px 8px 8px;
+	color: #ffca51;
+	padding: 23px 8px 22px 8px;
+	border-radius:420px/124px;
 	margin: 0px;
+	opacity: .85;
+
 }
 .email-reveal:hover {
 	border: 1px solid #b300b3;
@@ -196,15 +211,32 @@ hr.resume_hr_style {
 	border: 1px solid #2f477a;
 	background-color: #3b5998;
 	border-radius: 4px;
-	color: white;
-	padding: 9px 8px 8px 8px;
+	color: #ffca51;
+	padding: 23px 8px 22px 8px;
+	border-radius:420px/124px;
 	margin: 0px;
+	opacity: .85;
+
 }
 .phone-reveal:hover {
 	border: 1px solid #3333ff;
 	font-weight: 600;
 }
-
+.modal_email_div {
+	background: url('/static/img/black_board.jpg') repeat fixed;
+}
+.close {
+	color: white;
+	opacity: 1;
+	text-shadow: none;
+}
+.close:hover {
+	color: #ffca51;
+	opacity: 1;
+}
+#myModalLabel {
+	color: #ffca51;
+}
 /************************** end of CONTACT page ******************************/
 
 
