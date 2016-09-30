@@ -51,16 +51,48 @@
 						controller: 'SkillStorageController'
 					})
 					.when('/self', {
-						templateUrl: "static/partials/self_qa.html"
+						templateUrl: "static/partials/self_qa.html",
+						controller: 'SelfController'
 					})
 					.when('/daily', {
 						templateUrl: "static/partials/daily_plan.html"
+					})
+					.when('/login', {
+						templateUrl: "static/partials/login.html",
+						controller: "LoginController"
 					})
 					.otherwise({
 						redirectTo: '/home'
 					});
 			}]);
 
+			// usersFactory
+			app.factory("usersFactory", ['$http', function($http) {
+
+				function UsersFactory() {
+
+					this.register = function(newUser, callback) {
+						$http.post('/register', newUser).then(
+							function success(response) {
+								if (typeof(response.data.errors) != 'undefined') {
+									callback(false, response.data.errors);
+								}
+								else {
+									callback(true, response.data);
+								}
+							},
+							function error(response) {
+								console.log("[register: ERROR] server has failed to register a new user.");
+							}
+						);
+					}
+
+				}
+
+				return new UsersFactory();
+			}]);
+
+			// contactsFactory
 			app.factory("contactsFactory", ['$http', function($http) {
 
 				function ContactsFactory() {
@@ -84,13 +116,12 @@
 						);
 					}
 
-
 				}
-
 
 				return new ContactsFactory;
 			}]);
 
+			// ContactController
 			app.controller("ContactController", ['$scope', '$location', '$cookies', 'contactsFactory', 'Flash', function($scope, $location, $cookies, contactsFactory, Flash) {
 
 				$scope.send_email = function() {
@@ -109,6 +140,7 @@
 
 			}]);
 
+			// MeController
 			app.controller('MeController', ['$scope', function($scope) {
 
 				$scope.showMeaning = false;
@@ -125,6 +157,7 @@
 				}
 			}]);
 
+			// SkillStorageController
 			app.controller('SkillStorageController', ['$scope', function($scope) {
 
 				// CURRENT EQUIPMENTS
@@ -196,6 +229,78 @@
 				}
 
 			}]);
+
+
+			app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', function($scope, $location, $cookies, Flash) {
+				$scope.login_status = false;
+
+				// immediate function to prevent non logged-in user access
+				(function() {
+					// if cookie does not exist, redirect client to the login page
+					if ($cookies.get('username') != undefined) {
+						$scope.login_status = true;
+						$scope.username = $cookies.get('username');
+					}
+					// if ($cookies.get('newUser_log') != undefined) {
+					// 	Flash.create("success", "successfully registered! Welcome, " + $scope.username +"!");
+					// 	// then remove the cookies right away. one time use only
+					// 	$cookies.remove('newUser_log');
+					// }
+
+				})();
+
+
+				// store user's current page. this is for login and back to current page
+				$scope.currentPage = function() {
+					$cookies.put("currentPage", "/self");
+				};
+
+				$scope.logout = function() {
+					$cookies.remove("username");
+					$cookies.remove("authority_level");
+
+					$scope.login_status = false;
+					Flash.create("success", "You have successfully logged out!");
+				}
+			}]);
+
+			app.controller("LoginController", ['$scope', '$location', '$cookies', 'Flash', 'usersFactory', function($scope, $location, $cookies, Flash, usersFactory) {
+				$scope.newUser = {};
+
+				$scope.register = function() {
+					usersFactory.register($scope.newUser, function(status, response) {
+						if (status == false) {
+							Flash.clear();
+							// send back error
+							var errors = [];
+							for (var x in response) {
+								errors.push(response[x].message);
+							}
+							errors.reverse();
+							for (var i = 0, j = errors.length; i < j; i++) {
+								Flash.create('danger', errors[i]);
+							}
+						}
+						else {
+							Flash.clear(); // clear errors
+							$scope.newUser = {} // clear register form
+							// save username and authority_level in cookies
+							$cookies.put("username", response.username);
+							$cookies.put("authority_level", response.authority_level);
+							// $cookies.put("newUser_log", "trigger");
+
+							console.log($cookies.get("username"));
+							console.log($cookies.get("authority_level"));
+							location.reload();
+							$location.url($cookies.get("currentPage"));
+
+							// back to where the user was originally from using $cookies
+							// then redirect to that page
+						}
+					});
+				}
+			}]);
+
 		</script>
 	</head>
 	<body>

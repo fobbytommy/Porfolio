@@ -54,8 +54,11 @@ var userSchema = new mongoose.Schema({
 						// message: "Password failed validation, you must have at least 1 number, uppercase, and special character."
 						message: "Password failed validation, you must have at least 1 uppercase."
 					}
-				}
-
+				},
+	authority_level: 	{
+							type: Number,
+							default: 1 // 1 for normal users
+						}
 
 }, { timestamps: true });
 

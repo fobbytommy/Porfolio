@@ -31,6 +31,10 @@
 							</ul>
 						</li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage()"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/self" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
 				</div>
 			</div>
 		</nav>
@@ -38,6 +42,7 @@
 </div>
 
 <div class="container top_for_nav">
+	<flash-message class="" duration="10000" show-close="true"></flash-message>
 	<h1>self Q & A</h1>
 	<div class="row">
 		<div class="col-lg-5 col-md-5 col-sm-7 input-group">
