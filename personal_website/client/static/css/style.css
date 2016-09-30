@@ -170,7 +170,8 @@ hr.hr_style {
 }
 /*--------------------- END OF RESUME PAGE STYLING ---------------------------*/
 
-/************************* CONTACT PAGE **************************************/
+/*******************************
+ 						CONTACT PAGE ******************************************/
 .contact_div_main {
 	padding: 0px 23px;
 	margin-bottom: 40px;
@@ -237,8 +238,79 @@ hr.hr_style {
 #myModalLabel {
 	color: #ffca51;
 }
-/************************** end of CONTACT page ******************************/
+/*---------------------------end of CONTACT page -----------------------------*/
 
+/*******************************
+ 						SKILL STORAGE PAGE ************************************/
+.storage_main_div {
+	/*outline: 1px dotted red;*/
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.storage_main_div h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.storage_main_div h4 {
+	color: rgba(144, 136, 150, .7);
+	font-weight: 600;
+	font-size: 1.05em;
+}
+@media (max-width: 768px) {
+	.storage_main_div h2 {
+		text-align: center;
+	}
+	.storage_main_div h4 {
+		text-align: center;
+	}
+}
+.list-inline>li {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 5px;
+	margin-bottom: 7px;
+}
+.technologies>li {
+	/*border: 1px solid blue;*/
+	background-color: rgba(7, 99, 247, .7);
+}
+h4 .technologies, p .technologies {
+	color: rgba(7, 99, 247, .8);
+}
+.skills>li {
+	background-color: rgba(211, 23, 79, .6);
+}
+h4 .skills, p .skills{
+	color: rgba(211, 23, 79, .8);
+}
+.storage_block_div {
+	/*border: 1px dotted orange;*/
+	padding: 0px 20px 10px 20px;
+}
+.storage_block_div h3 {
+	color: rgba(247, 203, 101, 0.8);
+	text-shadow: rgba(249, 241, 222, .3) 1px 2px 4px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 1.4em;
+	font-weight: 600;
+}
+.storage_block_div p {
+	color: rgba(214, 210, 203, 0.9);
+	font-weight: 600;
+}
+.storage_block_div ul {
+	/*outline: 1px dotted blue;*/
+	padding-left: 6px;
+	padding-right: 6px;
+}
+hr.storage_hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(255, 255, 255, .8);
+}
+/*------------------------ end of SKILL STORAGE page -------------------------*/
 
 /****************************** Self Q & A page ******************************/
 .self_question {

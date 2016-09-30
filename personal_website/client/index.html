@@ -47,7 +47,8 @@
 						controller: 'ContactController'
 					})
 					.when('/skills', {
-						templateUrl: "static/partials/skill_storage.html"
+						templateUrl: "static/partials/skill_storage.html",
+						controller: 'SkillStorageController'
 					})
 					.when('/self', {
 						templateUrl: "static/partials/self_qa.html"
@@ -124,6 +125,77 @@
 				}
 			}]);
 
+			app.controller('SkillStorageController', ['$scope', function($scope) {
+
+				// CURRENT EQUIPMENTS
+				$scope.current = {
+					technologies: 	[	"MongoDB",
+										"Express",
+										"Angular.js",
+										"Node.js",
+										"Javascript",
+										"HTML / HTML5",
+										"CSS / CSS3",
+										"Twitter Bootstrap",
+										"Git / Github & Terminal",
+										"AJAX", "APIs",
+										"Amazon Web Service (AWS)",
+										"Linux Server via AWS",
+										"socket.io",
+										"npm / bower"
+									],
+					skills: [	"Full Stack Development (MEAN)",
+								"Responsive Web Design",
+								"Front-end Development",
+								"Wireframes & Mockups",
+								"Code Version Control",
+								"HTTP Request",
+								"Dynamic Content",
+								"CRUD Operations",
+								"OOP in Javascript",
+								"AJAX Requests",
+								"MVC Framework / Design",
+								"Building Real-time Apps",
+								"NoSQL Database Design",
+								"RESTful Routing",
+								"Web Socket Connection"
+							]
+				}
+
+				// INVENTORY
+				$scope.inventory = {
+					technologies: 	[	"LESS",
+										"jQuery",
+										"jQuery-UI",
+										"Python",
+										"Flask",
+										"Django",
+										"MySQL",
+										"SQLite",
+										"Balsamiq"
+									],
+					skills:	[	"Full Stack Development (Python)",
+								"OOP in Python",
+								"SQL Queries",
+								"ERD Diagrams",
+								"Object Relational Mapper",
+								"Relational Database Design",
+								"Web Crawler",
+								"Test-Driven Development (TDD)",
+								"Creating Custom JS libraries"
+							]
+				}
+
+				// WISHLIST
+				$scope.wishlist = {
+					technologies: 	[
+									],
+					skills:	[	"SASS",
+								"ReactJS"
+							]
+				}
+
+			}]);
 		</script>
 	</head>
 	<body>

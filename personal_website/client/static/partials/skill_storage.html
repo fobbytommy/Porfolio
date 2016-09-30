@@ -38,94 +38,73 @@
 </div>
 
 <div class="container top_for_nav">
-	<h2>My Skill Storage</h2>
-	<h4>this is just a laundry list of my skills and technologies for quick overview of what I am capable of.</h4>
-	<h2><small>hover over the questions to see what's it all about</small></h2>
-	<h4>These are all dynamically generated contents, so you can search to filter stuff out!</h4>
-	<input type="search" class="form-control" placeholder="search...">
-	<div class="row">
-		<div class="col-lg-12">
-			<h3>What's my current equipments?</h3>
-			<div class="">
-				<p>
-					These are the skills and technologies that I am currently using all the time. I am trying to increase my expertise in those skills/technologies below.
-				</p>
+	<div class="storage_main_div">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>SKILL STORAGE</h2>
+				<h4>a laundry list of my <span class="skills">skills</span> and <span class="technologies">technologies</span></h4>
 			</div>
-			<ul class="list-inline">
-				<li>HTML/HTML5</li>
-				<li>CSS/CSS5</li>
-				<li>Javascript</li>
-				<li>Git/Github & Terminal</li>
-				<li>Responsive Web Design</li>
-				<li>Twitter Bootstrap 3</li>
-				<li>AJAX</li>
-				<li>APIs</li>
-				<li>MongoDB</li>
-				<li>Express</li>
-				<li>Angular.js</li>
-				<li>AWS/Linux Server</li>
-				<li>Node.js</li>
-				<li>socket.io</li>
-				<li>npm/bower</li>
-			</ul>
-			<ul class="list-inline">
-				<li>Front-end Development</li>
-				<li>Wireframes & Mockups</li>
-				<li>Code Version Control</li>
-				<li>HTTP Request</li>
-				<li>Dynamic Content</li>
-				<li>CRUD Operations</li>
-				<li>OOP in Javascript</li>
-				<li>AJAX Requests</li>
-				<li>MVC Framework/Design</li>
-				<li>Building Real-time Apps</li>
-				<li>NoSQL Database Design</li>
-				<li>RESTful Routing</li>
-			</ul>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-12">
-			<h3>What's in my inventory?</h3>
 
-			<div class="">
-				<p>
-					These are skills and technologies, which I have previously learned and experienced before. These are set aside due to my current equipments (focus). Upon request, I can readapt these skills quickly and efficiently.
-				</p>
+		<!-- search bar -->
+		<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 input-group">
+			<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+  			<input type="serach" class="form-control" placeholder="search skills or technologies" aria-describedby="basic-addon1" ng-model="SearchAll">
+		</div>
+
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>CURRENT EQUIPMENTS</h3>
+				<div class="">
+					<p>
+						I am currently using the following <span class="skills">skills</span> and <span class="technologies">technologies</span> all of the time for my web development.
+					</p>
+				</div>
+				<ul class="list-inline technologies">
+					<li ng-repeat="technology in current.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline skills">
+					<li ng-repeat="skill in current.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
 			</div>
-			<ul class="list-inline">
-				<li>LESS</li>
-				<li>Python</li>
-				<li>MySQL</li>
-				<li>SQLite</li>
-				<li>jQuery</li>
-				<li>Flask</li>
-				<li>Django</li>
-				<li>Balsamiq</li>
-			</ul>
-			<ul class="list-inline">
-				<li>OOP in Python</li>
-				<li>SQL Queries</li>
-				<li>ERD Diagrams</li>
-				<li>Object Relational Mapper</li>
-				<li>Web Crawler</li>
-				<li>TDD</li>
-				<li>Creating Custom JS libraries</li>
-			</ul>
+		</div>
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>INVENTORY</h3>
+
+				<div class="">
+					<p>
+						These are the <span class="skills">skills</span> and <span class="technologies">technologies</span>, which I have learned and experienced before. These are set aside due to my current equipments and focus. Upon request, I can readapt all these quickly and efficiently.
+					</p>
+				</div>
+				<ul class="list-inline technologies">
+					<li ng-repeat="technology in inventory.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline skills">
+					<li ng-repeat="skill in inventory.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
+			</div>
+		</div>
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>WISHLIST</h3>
+				<div class="">
+					<p>
+						I want to learn and adapt the following <span class="skills">skills</span> and <span class="technologies">technologies</span> in the near future.
+					</p>
+				</div>
+				<ul class="list-inline skills">
+					<li ng-repeat="technology in wishlist.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline technologies">
+					<li ng-repeat="skill in wishlist.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
+
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12">
-			<h3>What's in my wishlist?</h3>
-			<div class="">
-				<p>
-					These are the skills and technologies that I want to learn and adapt.
-				</p>
-			</div>
-			<ul class="list-inline">
-				<li>SASS</li>
-				<li>ReactJS</li>
-			</ul>
-		</div>
-	</div>
+
 </div>
