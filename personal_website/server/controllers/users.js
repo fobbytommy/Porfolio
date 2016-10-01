@@ -1,3 +1,4 @@
+var bcrypt = require("bcrypt");
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
 
@@ -37,9 +38,33 @@ function UserController() {
 				res.json( user );
 			}
 		});
+	};
 
 
-	}
+	this.login = function(req, res) {
+		var username = req.body.username;
+		var password = req.body.password;
+
+		User.findOne({ username_lowercase: username.toLowerCase() }, function(err, user) {
+			if (user == null) { // username does not existing in the database
+				console.log("[login: ERROR] failed to find the user in the db!");
+				res.json({errors: "Username or password does not match!"});
+			}
+			else {
+				if (bcrypt.compareSync(password, user.password) == false) {
+					console.log("[login: ERROR] password does not match!");
+					res.json({errors: "Username or password does not match!"});
+				}
+				else {
+					console.log("[login: SUCCESS] successfully login a user!");
+					res.json( user );
+				}
+			}
+		});
+
+
+
+	};
 
 }
 

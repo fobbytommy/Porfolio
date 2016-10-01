@@ -8,5 +8,6 @@ module.exports = function(app) {
 
 	// deals with http requests from the 'Login' page
 	app.post("/register", users.register);
+	app.post("/login", users.login);
 
 }

@@ -40,11 +40,13 @@
 						controller: 'MeController'
 					})
 					.when('/resume', {
-						templateUrl: "static/partials/resume.html"
+						templateUrl: "static/partials/resume.html",
+						controller: 'MeController'
 					})
 					.when('/contact', {
 						templateUrl: "static/partials/contact.html",
-						controller: 'ContactController'
+						controller: 'ContactController',
+						controller: 'MeController'
 					})
 					.when('/skills', {
 						templateUrl: "static/partials/skill_storage.html",
@@ -55,7 +57,12 @@
 						controller: 'SelfController'
 					})
 					.when('/daily', {
-						templateUrl: "static/partials/daily_plan.html"
+						templateUrl: "static/partials/daily_plan.html",
+						controller: 'DailyController'
+					})
+					.when('/about', {
+						templateUrl: "static/partials/about.html",
+						controller: 'AboutController'
 					})
 					.when('/login', {
 						templateUrl: "static/partials/login.html",
@@ -83,6 +90,22 @@
 							},
 							function error(response) {
 								console.log("[register: ERROR] server has failed to register a new user.");
+							}
+						);
+					}
+
+					this.login = function(loginUser, callback) {
+						$http.post('/login', loginUser).then(
+							function success(response) {
+								if (typeof(response.data.errors) != 'undefined') {
+									callback(false, response.data.errors);
+								}
+								else {
+									callback(true, response.data);
+								}
+							},
+							function error(response) {
+								console.log("[login: ERROR] failed to login an existing user.");
 							}
 						);
 					}
@@ -141,7 +164,19 @@
 			}]);
 
 			// MeController
-			app.controller('MeController', ['$scope', function($scope) {
+			app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, $cookies, Flash) {
+				$scope.login_status = false; // default to display 'logout' button
+
+				// immediate function to check login status
+				(function() {
+					// if cookie does exist, display 'login' button
+					// also save username and authority_level for use
+					if ($cookies.get('username') != undefined) {
+						$scope.login_status = true;
+						$scope.username = $cookies.get('username');
+						$scope.authority_level = $cookies.get('authority_level');
+					}
+				})();
 
 				$scope.showMeaning = false;
 				$scope.hoverInCerca = function() {
@@ -155,10 +190,38 @@
 					$scope.showMeaning = false;
 					$scope.stylePhoto = {};
 				}
+
+				// store user's current page. this is for login and back to current page
+				$scope.currentPage = function(currentPage) {
+					$cookies.put("currentPage", currentPage);
+				};
+
+				// logout function which removes the cookies and display message
+				$scope.logout = function() {
+					$cookies.remove("username");
+					$cookies.remove("authority_level");
+					$scope.username = {}; // clear username variable
+					$scope.login_status = false; // login status is now off
+					Flash.clear(); // clear flash before putting new flash
+					Flash.create("success", "You have successfully logged out!", 4000, {}, true);
+				}
 			}]);
 
 			// SkillStorageController
-			app.controller('SkillStorageController', ['$scope', function($scope) {
+			app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', function($scope, $cookies, Flash) {
+				$scope.login_status = false; // default to display 'logout' button
+
+				// immediate function to check login status
+				(function() {
+					// if cookie does exist, display 'login' button
+					// also save username and authority_level for use
+					if ($cookies.get('username') != undefined) {
+						$scope.login_status = true;
+						$scope.username = $cookies.get('username');
+						$scope.authority_level = $cookies.get('authority_level');
+					}
+				})();
+
 
 				// CURRENT EQUIPMENTS
 				$scope.current = {
@@ -228,25 +291,35 @@
 							]
 				}
 
+				// store user's current page. this is for login and back to current page
+				$scope.currentPage = function() {
+					$cookies.put("currentPage", "/skills");
+				};
+
+				// logout function which removes the cookies and display message
+				$scope.logout = function() {
+					$cookies.remove("username");
+					$cookies.remove("authority_level");
+					$scope.username = {}; // clear username variable
+					$scope.login_status = false; // login status is now off
+					Flash.clear(); // clear flash before putting new flash
+					Flash.create("success", "You have successfully logged out!", 4000, {}, true);
+				}
 			}]);
 
-
+			// SelfController
 			app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', function($scope, $location, $cookies, Flash) {
-				$scope.login_status = false;
+				$scope.login_status = false; // default to display 'logout' button
 
-				// immediate function to prevent non logged-in user access
+				// immediate function to check login status
 				(function() {
-					// if cookie does not exist, redirect client to the login page
+					// if cookie does exist, display 'login' button
+					// also save username and authority_level for use
 					if ($cookies.get('username') != undefined) {
 						$scope.login_status = true;
 						$scope.username = $cookies.get('username');
+						$scope.authority_level = $cookies.get('authority_level');
 					}
-					// if ($cookies.get('newUser_log') != undefined) {
-					// 	Flash.create("success", "successfully registered! Welcome, " + $scope.username +"!");
-					// 	// then remove the cookies right away. one time use only
-					// 	$cookies.remove('newUser_log');
-					// }
-
 				})();
 
 
@@ -255,16 +328,100 @@
 					$cookies.put("currentPage", "/self");
 				};
 
+				// logout function which removes the cookies and display message
 				$scope.logout = function() {
 					$cookies.remove("username");
 					$cookies.remove("authority_level");
-
-					$scope.login_status = false;
-					Flash.create("success", "You have successfully logged out!");
+					$scope.username = {}; // clear username variable
+					$scope.login_status = false; // login status is now off
+					Flash.clear(); // clear flash before putting new flash
+					Flash.create("success", "You have successfully logged out!", 4000, {}, true);
 				}
 			}]);
 
+
+			// DailyController
+			app.controller("DailyController", ['$scope', '$location', '$cookies', 'Flash', function($scope, $location, $cookies, Flash) {
+				$scope.login_status = false; // default to display 'logout' button
+
+				// immediate function to check login status
+				(function() {
+					// if cookie does exist, display 'login' button
+					// also save username and authority_level for use
+					if ($cookies.get('username') != undefined) {
+						$scope.login_status = true;
+						$scope.username = $cookies.get('username');
+						$scope.authority_level = $cookies.get('authority_level');
+					}
+				})();
+
+
+				// store user's current page. this is for login and back to current page
+				$scope.currentPage = function() {
+					$cookies.put("currentPage", "/daily");
+				};
+
+				// logout function which removes the cookies and display message
+				$scope.logout = function() {
+					$cookies.remove("username");
+					$cookies.remove("authority_level");
+					$scope.username = {}; // clear username variable
+					$scope.login_status = false; // login status is now off
+					Flash.clear(); // clear flash before putting new flash
+					Flash.create("success", "You have successfully logged out!", 4000, {}, true);
+				}
+			}]);
+
+
+			// AboutController
+			app.controller("AboutController", ['$scope', '$location', '$cookies', 'Flash', function($scope, $location, $cookies, Flash) {
+				$scope.login_status = false; // default to display 'logout' button
+
+				// immediate function to check login status
+				(function() {
+					// if cookie does exist, display 'login' button
+					// also save username and authority_level for use
+					if ($cookies.get('username') != undefined) {
+						$scope.login_status = true;
+						$scope.username = $cookies.get('username');
+						$scope.authority_level = $cookies.get('authority_level');
+					}
+				})();
+
+
+				// store user's current page. this is for login and back to current page
+				$scope.currentPage = function() {
+					$cookies.put("currentPage", "/about");
+				};
+
+				// logout function which removes the cookies and display message
+				$scope.logout = function() {
+					$cookies.remove("username");
+					$cookies.remove("authority_level");
+					$scope.username = {}; // clear username variable
+					$scope.login_status = false; // login status is now off
+					Flash.clear(); // clear flash before putting new flash
+					Flash.create("success", "You have successfully logged out!", 4000, {}, true);
+				}
+			}]);
+
+			// LoginController
 			app.controller("LoginController", ['$scope', '$location', '$cookies', 'Flash', 'usersFactory', function($scope, $location, $cookies, Flash, usersFactory) {
+
+				// immediate function to check login status
+				(function() {
+					// if cookie does exist, that user shouldn't be here, since
+					// they are already logged in!
+					// force them back to 'me' page
+					if ($cookies.get('username') != undefined) {
+						$scope.username = $cookies.get('username');
+						Flash.clear(); // clear flash before putting new flash
+						Flash.create("warning", "You are already logged in, <strong>" + $scope.username + "</strong>!", 4000, {}, true);
+						// force back to 'me' page with the flash message above
+						$location.url('/me');
+					}
+				})();
+
 				$scope.newUser = {};
 
 				$scope.register = function() {
@@ -276,7 +433,7 @@
 							for (var x in response) {
 								errors.push(response[x].message);
 							}
-							errors.reverse();
+							errors.reverse(); // organize order of the errors
 							for (var i = 0, j = errors.length; i < j; i++) {
 								Flash.create('danger', errors[i]);
 							}
@@ -287,19 +444,43 @@
 							// save username and authority_level in cookies
 							$cookies.put("username", response.username);
 							$cookies.put("authority_level", response.authority_level);
-							// $cookies.put("newUser_log", "trigger");
 
-							console.log($cookies.get("username"));
-							console.log($cookies.get("authority_level"));
-							location.reload();
+							$('#register_modal').modal('hide');
+							$('body').removeClass('modal-open');
+							$('.modal-backdrop').remove();
+							// redirect the user to the same page they register from
 							$location.url($cookies.get("currentPage"));
-
-							// back to where the user was originally from using $cookies
-							// then redirect to that page
+							Flash.create("success", "Registration is successful! Welcome, <strong>" + response.username + "</strong>!!!", 4000, {}, true);
 						}
 					});
 				}
+
+				$scope.login = function() {
+					usersFactory.login($scope.loginUser, function(status, response) {
+						if (status == false) { // login failed, send error message
+							$scope.loginError = response;
+						}
+						else {
+							$scope.loginError = {}; // clear login error
+							$scope.loginUser = {};  // clera user login form
+							// save username and authority_level in cookies
+							$cookies.put("username", response.username);
+							$cookies.put("authority_level", response.authority_level);
+
+							Flash.clear(); // clear flash before putting new flash
+							Flash.create("success", "Welcome back, <strong>" + response.username + "</strong>!", 4000, {}, true);
+							// redirect the user to the same page they login from
+							$location.url($cookies.get("currentPage"));
+						}
+					});
+
+				}
+
+
 			}]);
+
+
+
 
 		</script>
 	</head>
