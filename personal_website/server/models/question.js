@@ -14,36 +14,38 @@ var questionSchema = new mongoose.Schema({
 					minlength: [16, "Your question is too short! Please write more than 15 characters!"],
 					maxlength: [149, "Your question is too long! Please write less than 150 characters!"]
 				},
-	// all answer is going to be made by Tommy
+	// all answer is going to be made by Tommy (unless I change that)
 	answer: 	{
-					type: String
+					type: String,
+					required: [true, "Answer is required."],
+					minlength: [6, "Your answer is too short! Please write more than 5 characters!"]
 				},
-	// questions can have many comments. (one-to-many relationship)
-	_comments: 	[{
-		 			type: Schema.Types.ObjectId,
-					ref: "Comment"
-				}]
+	// // questions can have many comments. (one-to-many relationship)
+	// _comments: 	[{
+	// 	 			type: Schema.Types.ObjectId,
+	// 				ref: "Comment"
+	// 			}]
 
 }, { timestamps: true });
 
-// comment model
-var commentSchema = new mongoose.Schema({
-	// a comment can only belong to a one specific question
-	_question: 	{
-					type: Schema.Types.ObjectId,
-					ref: "Question"
-				},
-	username: 	{
-					type: String
-				},
-	comment: 	{
-					type: String,
-					required: [true, "Please write something before you add a comment!"],
-					minlength: [9, "Your comment is too short! Please write more than 8 characters!"],
-					maxlength: [499, "Your comment is too long! Please write less than 500 characters!"]
-				}
-
-}, { timestamps: true});
+// // comment model
+// var commentSchema = new mongoose.Schema({
+// 	// a comment can only belong to a one specific question
+// 	_question: 	{
+// 					type: Schema.Types.ObjectId,
+// 					ref: "Question"
+// 				},
+// 	username: 	{
+// 					type: String
+// 				},
+// 	comment: 	{
+// 					type: String,
+// 					required: [true, "Please write something before you add a comment!"],
+// 					minlength: [9, "Your comment is too short! Please write more than 8 characters!"],
+// 					maxlength: [499, "Your comment is too long! Please write less than 500 characters!"]
+// 				}
+//
+// }, { timestamps: true});
 
 mongoose.model('Question', questionSchema);
-mongoose.model('Comment', commentSchema);
+// mongoose.model('Comment', commentSchema);

@@ -1,5 +1,8 @@
-app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', function($scope, $location, $cookies, Flash) {
+app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', 'questionsFactory', function($scope, $location, $cookies, Flash, questionsFactory) {
 	$scope.login_status = false; // default to display 'logout' button
+	$scope.newQuestion = {};
+	$scope.updateQuestion = {};
+	$scope.questions = [];
 
 	// immediate function to check login status
 	(function() {
@@ -12,6 +15,52 @@ app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', fu
 		}
 	})();
 
+	// create a new question
+	$scope.create_question = function() {
+		questionsFactory.create_question($scope.newQuestion, $scope.username, function(status, response) {
+			if (status == false) {
+				// display validation errors
+				$scope.questionErrors = response;
+			}
+			else {
+				$scope.questionErrors = {}; // clear form errors
+				$scope.newQuestion = {}; // clear question form
+				// push question to the $scope.questions
+				$scope.questions.push(response);
+				Flash.create("success", "Successfully added a new question!", 4000, {}, true);
+			}
+		});
+	}
+
+	// get all the questions made by 'fobbytommy' (by me)
+	questionsFactory.index_question(function(questions) {
+		$scope.questions = questions;
+	})
+
+
+	// Update a question
+	$scope.update_question = function(question_id) {
+		questionsFactory.update_question(question_id, $scope.updateQuestion);
+		// then just reload the page
+		location.reload();
+	}
+	$scope.get_question_for_update = function(index) {
+		$scope.gotQuestion = $scope.questions[$scope.questions.length - 1 - index];
+		$scope.updateQuestion.question = $scope.gotQuestion.question;
+		$scope.updateQuestion.answer = $scope.gotQuestion.answer;
+	}
+
+
+
+	// Delete a question
+	$scope.delete_question = function(delete_id) {
+		questionsFactory.delete_question(delete_id);
+		// then just reload the page
+		location.reload();
+	}
+	$scope.save_delete_id = function (delete_id) {
+		$scope.delete_id = delete_id;
+	}
 
 	// store user's current page. this is for login and back to current page
 	$scope.currentPage = function() {
