@@ -68,7 +68,7 @@ function QuestionController() {
 
 	// CRU[D] - delete a question made by me ('fobbytommy')
 	this.delete_question = function(req, res) {
-		console.log(req.params.id);
+		
 		Question.remove({ _id: req.params.id }, function(err) {
 			if (err) {
 				console.log("[delete_question: ERROR] failed to delete a question from the DB: ", err);
