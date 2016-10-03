@@ -63,12 +63,12 @@ function QuestionController() {
 			}
 
 		});
-	}
+	};
 
 
 	// CRU[D] - delete a question made by me ('fobbytommy')
 	this.delete_question = function(req, res) {
-		
+
 		Question.remove({ _id: req.params.id }, function(err) {
 			if (err) {
 				console.log("[delete_question: ERROR] failed to delete a question from the DB: ", err);
@@ -79,7 +79,7 @@ function QuestionController() {
 				// nothing is returned
 			}
 		});
-	}
+	};
 }
 
 module.exports = new QuestionController();

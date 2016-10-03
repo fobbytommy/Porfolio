@@ -50,8 +50,6 @@ app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', 'q
 		$scope.updateQuestion.answer = $scope.gotQuestion.answer;
 	}
 
-
-
 	// Delete a question
 	$scope.delete_question = function(delete_id) {
 		questionsFactory.delete_question(delete_id);

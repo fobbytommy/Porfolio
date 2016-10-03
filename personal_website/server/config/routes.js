@@ -24,4 +24,10 @@ module.exports = function(app) {
 	app.put("/planner/:id", planners.update_planner);
 	app.patch("/planner/:id", planners.delete_single_plan);
 	app.delete("/planner/:id", planners.delete_planner);
+
+	// deals with http requests from the 'Dashboard' page
+	app.get("/users", users.index_users);
+	app.put("/users/:id", users.update_user);
+	app.delete("/users/:id", users.delete_user);
+
 }

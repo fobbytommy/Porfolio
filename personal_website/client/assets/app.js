@@ -16,7 +16,6 @@ app.config(['$routeProvider', function($routeProvider) {
 		.when('/contact', {
 			templateUrl: "static/partials/contact.html",
 			controller: 'ContactController',
-			controller: 'MeController'
 		})
 		.when('/skills', {
 			templateUrl: "static/partials/skill_storage.html",
@@ -37,6 +36,10 @@ app.config(['$routeProvider', function($routeProvider) {
 		.when('/login', {
 			templateUrl: "static/partials/login.html",
 			controller: "LoginController"
+		})
+		.when('/dashboard', {
+			templateUrl: "static/partials/dashboard.html",
+			controller: "DashboardController"
 		})
 		.otherwise({
 			redirectTo: '/home'

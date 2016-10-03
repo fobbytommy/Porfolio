@@ -445,6 +445,22 @@ hr.storage_hr {
 
 /************************************
  						About this Website page *******************************/
+.dashboard_contents {
+	padding: 0 10px;
+}
+.dashboard_contents h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.dashboard_contents table {
+	background-color: rgba(12, 0, 25, 0.6);
+	border: 4px double rgba(247, 186, 81, .6);
+}
+.dashboard_contents table th {
+	color: rgb(255, 199, 79);
+}
 
 
 /*---------------- end of About this Website Plan page -----------------------*/

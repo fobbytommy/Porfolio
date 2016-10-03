@@ -58,13 +58,13 @@
 		<div class="row daily_plans">
 			<div class="col-lg-3 col-md-4 col-sm-6 daily_plan_col" ng-repeat="planner in planners | orderBy:'-createdAt'">
 				<div class="daily_plan">
-					<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-primary btn-block" ng-click="delete_planner(planner._id)">Remove this planner</button>
+					<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-flickr btn-block" ng-click="delete_planner(planner._id)">Remove this planner</button>
 					<div class="planner_createdAt">
 						{{ planner.createdAt | date:'fullDate' }}
 					</div>
 					<ul>
 						<li ng-repeat="plan in planner.plan">
-							<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-danger btn-xs" ng-click="delete_single_plan(planner._id, plan)">Delete</button>
+							<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-pinterest btn-xs" ng-click="delete_single_plan(planner._id, plan)">Delete</button>
 							{{ plan }}
 						</li>
 					</ul>
