@@ -19,12 +19,21 @@ app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, 
 		$scope.stylePhoto = {
 			'border': '8px groove rgba(255, 202, 81, 0.7)',
 		};
-	}
+	};
 
 	$scope.hoverOutMeaning = function() {
 		$scope.showMeaning = false;
 		$scope.stylePhoto = {};
-	}
+	};
+
+	$scope.styleReference = function () {
+		$scope.referenceStyle = {
+			'color': 'rgba(219, 168, 65, 0.9)'
+		};
+	};
+	$scope.unstyleReference = function () {
+		$scope.referenceStyle = {};
+	};
 
 	// store user's current page. this is for login and back to current page
 	$scope.currentPage = function(currentPage) {
