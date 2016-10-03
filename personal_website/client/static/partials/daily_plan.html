@@ -44,32 +44,40 @@
 <div class="container top_for_nav">
 	<flash-message class="" duration="4000" show-close="true"></flash-message>
 	<div class="daily_plan_contents">
-		<div class="row" ng-if="true">
-			<form >
-				<textarea class="form-control" rows="5" ng-model="newPost.post"></textarea>
-				<button class="btn btn-success btn-block" type="submit">Click to add your schedule</button>
-			</form>
-		</div>
 		<div class="row">
-			<div class="daily_plan">
-				<div class="text-center">
-					<h2>$index: 9/27/2016</h2>
-					<h5>Do algorithm</br>
-						finish this website static contenct</br>
-					</h5>
-				</div>
-
+			<div class="col-lg-12">
+				<h2>Daily Plan</h2>
+				<h4>see my everyday schedule!</h4>
 			</div>
-				<div class="comment col-lg-6 col-lg-offset-2">
-					<form>
-						<textarea class="form-control" rows="5" ng-model="newPost.post"></textarea>
-						<button class="btn btn-success btn-block" type="submit">Click to add your schedule</button>
-					</form>
-				</div>
 		</div>
+		<div class="row" ng-if="username == 'fobbytommy' && authority_level == 9">
+			<div class="col-lg-5 col-md-6 col-sm-6">
+				<button class="btn btn-info btn-block" type="button" ng-click="create_planner()">Create a day planner</button>
+			</div>
+		</div>
+		<div class="row daily_plans">
+			<div class="col-lg-3 col-md-4 col-sm-6 daily_plan_col" ng-repeat="planner in planners | orderBy:'-createdAt'">
+				<div class="daily_plan">
+					<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-primary btn-block" ng-click="delete_planner(planner._id)">Remove this planner</button>
+					<div class="planner_createdAt">
+						{{ planner.createdAt | date:'fullDate' }}
+					</div>
+					<ul>
+						<li ng-repeat="plan in planner.plan">
+							<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-danger btn-xs" ng-click="delete_single_plan(planner._id, plan)">Delete</button>
+							{{ plan }}
+						</li>
+					</ul>
+				</div>
+				<form ng-if="username == 'fobbytommy' && authority_level == 9" ng-submit="update_planner(planner._id)">
+					<textarea class="form-control" rows="2" id="answer" placeholder="add a new plan"  ng-model="updatePlanner.plan"></textarea>
+					<button type="submit" class="btn btn-success btn-xs">Add a plan</button>
+				</form>
+			</div>
 
 
+
+		</div>
 	</div>
-
 
 </div>

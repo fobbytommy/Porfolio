@@ -314,7 +314,6 @@ hr.storage_hr {
 
 /************************************
 							Self Q & A page ***********************************/
-
 .self_qa_main_div {
 	/*outline: 1px dotted blue;*/
 	margin-left: 10px;
@@ -376,8 +375,86 @@ hr.storage_hr {
 /************************************
  							Daily Plan page ***********************************/
 
+.daily_plan_contents {
+	/*outline: 1px dotted red;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.daily_plan_contents h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.daily_plan_contents h4 {
+	color: rgba(144, 136, 150, .7);
+	font-weight: 600;
+	font-size: 1.05em;
+}
+.daily_plans {
+	/*outline: 1px dotted yellow;*/
+	margin-top: 10px;
+}
+.daily_plans form {
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+.daily_plan {
+	/*background-color: orange;*/
+	height: 215px;
+	-webkit-box-shadow: 4px 4px 4px rgb(44, 3, 73);
+	-moz-box-shadow:    4px 4px 4px rgb(44, 3, 73);
+	box-shadow:         3px 3px 3px rgba(165, 121, 8, 0.7);
+	margin-bottom: 28px;
+	word-wrap: break-word;
+	overflow-y: auto;
+	/*border: 1px solid rgba(242, 188, 50, .8);*/
+	padding: 6px;
+	background-color: rgba(242, 188, 50, .3);
+	color: rgb(51, 41, 11);
+	/*color: black;*/
+}
+.daily_plan:hover {
+	background-color: rgba(242, 188, 50, .9);
+}
+.daily_plan_col:first-child div {
+	background-color: rgba(242, 188, 50, .9);
+	color: black;
+}
+.daily_plan_col:first-child div .planner_createdAt {
+	background-color: rgba(216, 136, 17, 0.6);
+	font-weight: 600;
+	color: rgb(40, 5, 86);
+}
+.daily_plan ul {
+	padding-left: 15px;
+	list-style-type: square;
+}
+.planner_createdAt {
+	background-color: rgba(216, 136, 17, 0.3);
+	border-radius: 5px;
+	text-align: center;
+	padding: 3px;
+	margin-bottom: 5px;
+}
+
 
 /*----------------------- end of Daily Plan page -----------------------------*/
+
+
+/************************************
+ 						About this Website page *******************************/
+
+
+/*---------------- end of About this Website Plan page -----------------------*/
+
+
+/************************************
+ 							Dashboard page ************************************/
+
+
+/*------------------------- end of Dashboard page ----------------------------*/
 
 /***********************************
 							Login Page ****************************************/
