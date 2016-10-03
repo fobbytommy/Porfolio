@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -32,7 +32,7 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active" ng-show="login_status" ng-if="username == 'fobbytommy' && authority_level == 9"><a href="#/dashboard"><i class="fa fa-users" aria-hidden="true"></i>   dashboard</a></li>
+						<li id="active_font" class="active" ng-show="login_status" ng-if="username == 'fobbytommy' && authority_level == 9"><a href="#/dashboard"><i class="fa fa-users" aria-hidden="true"></i>   dashboard</a></li>
             			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage('/me')"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
 						<li ng-show="login_status"><a href="#/dashboard" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
           			</ul>

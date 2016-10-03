@@ -57,9 +57,35 @@ body {
 
 
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
+/************************************
+ 				   		Navigation Bar Styling ********************************/
+.navbar-wrapper {
+	/*outline: 1px dotted red;*/
+}
+.navbar {
+	background-color: rgba(10, 3, 17, 0.93);
+	border: 2px groove rgba(247, 186, 81, 0.70);
+	border-radius: 0px;
+}
+.navbar-nav li a {
+	padding-left: 27px;
+	padding-right: 27px;
+}
+.active {
+	opacity: .84;
+}
+#active_font {
+	font-weight: 600;
+}
+#navbar-brand {
+	color: rgba(247, 186, 100, 0.80);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+#navbar-brand:hover {
+	color: rgba(247, 186, 81, 1);
+}
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
@@ -80,16 +106,6 @@ body {
   }
 
 
-}
-
-/* custom styling */
-.me_photo {
-	height: 140px;
-	width: 140px;
-}
-#main_content {
-	outline: 1px dotted red;
-	margin-top: 80px;
 }
 
 
