@@ -33,34 +33,32 @@ body {
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
 
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
 
 
 
 /************************************
  				   		Navigation Bar Styling ********************************/
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
-	/*outline: 1px dotted red;*/
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+	padding-right: 0;
+	padding-left: 0;
+}
+.navbar-wrapper .navbar {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+	width: auto;
 }
 .navbar {
 	background-color: rgba(10, 3, 17, 0.93);
@@ -105,9 +103,8 @@ body {
     border-radius: 4px;
   }
 
-
 }
-
+/*---------------------- end of Navigation Bar Styling -----------------------*/
 
 
 /***************************************
@@ -470,6 +467,138 @@ hr.storage_hr {
 
 /************************************
  						About this Website page *******************************/
+
+.about_content_div {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.about_content_div h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+	margin-bottom: 40px;
+}
+.about_content_div h4 {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	color: rgba(242, 187, 77, 0.7);
+	font-weight: 600;
+	text-shadow: rgba(255, 255, 255, 0.20) 3px 2px 3px;
+}
+.about_content_div h4:nth-of-type(2) {
+	margin-bottom: 14px;
+}
+.about_technology {
+	height: 287px;
+	padding: 5px 15px;
+	background-color: rgba(48, 3, 79, .1);
+	border: 2px groove rgb(188, 122, 16);
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
+	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
+	word-wrap: break-word;
+	margin-bottom: 20px;
+}
+.about_technology h5, .summary_content h5 {
+	padding-left: 4px;
+	color: rgba(255, 216, 145, .8);
+	font-weight: 600;
+}
+.about_technology ul {
+	padding-left: 33px;
+	color: rgba(255, 255, 255, .8);
+}
+.about_technology ul li ul {
+	padding-left: 30px;
+	color: rgba(242, 233, 218, .7);
+}
+.about_technology:hover {
+	background-color: rgba(11, 1, 10, .7);
+}
+.summary_content_row {
+	padding: 0 7px 0px 7px;
+}
+.summary_content_col {
+	padding: 8px 8px;
+}
+.summary_content {
+	padding: 5px 25px 10px 17px;
+	background-color: rgba(114, 2, 2, .13);
+	border: 2px groove rgb(188, 122, 16);
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
+	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
+	word-wrap: break-word;
+}
+.summary_content:hover {
+	background-color: rgba(20, 1, 1, .80);
+}
+.summary_content ul {
+	padding-left: 25px;
+}
+.summary_content img {
+	border: 3px solid rgba(115, 117, 87, .9);
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.summary_content ul {
+	color: rgba(255, 255, 255, .8);
+}
+.summary_content ul li ul{
+	color: rgba(242, 233, 218, .7);
+}
+.summary_3_way {
+	height: 200px;
+}
+.summary_2_way_top {
+	height: 958px;
+}
+.summary_2_way_bot {
+	height: 640px;
+}
+.summary_2_way_row {
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-left: 7px;
+	padding-right: 8px;
+	margin-bottom: 18px;
+}
+@media (max-width: 1200px) {
+	.summary_3_way {
+		height: 230px;
+	}
+}
+@media (max-width: 992px) {
+	.summary_3_way {
+		height: 225px;
+	}
+	.about_content_div h2, .about_content_div h4 {
+		text-align: center;
+	}
+}
+@media (max-width: 768px) {
+	.summary_3_way {
+		height: auto;
+	}
+	.about_technology {
+		height: auto;
+	}
+}
+@media (max-width: 1200px) {
+	.summary_2_way_top {
+		height: auto;
+	}
+	.summary_2_way_bot {
+		height: auto;
+	}
+}
+/*---------------- end of About this Website Plan page -----------------------*/
+
+
+/************************************
+ 							Dashboard page ************************************/
 .dashboard_contents {
 	padding: 0 10px;
 }
@@ -486,14 +615,6 @@ hr.storage_hr {
 .dashboard_contents table th {
 	color: rgb(255, 199, 79);
 }
-
-
-/*---------------- end of About this Website Plan page -----------------------*/
-
-
-/************************************
- 							Dashboard page ************************************/
-
 
 /*------------------------- end of Dashboard page ----------------------------*/
 
