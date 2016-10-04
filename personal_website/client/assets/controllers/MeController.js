@@ -13,6 +13,7 @@ app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, 
 		}
 	})();
 
+	// for CERCA TROVA hovering effect!
 	$scope.showMeaning = false;
 	$scope.hoverInCerca = function() {
 		$scope.showMeaning = true;
@@ -25,7 +26,10 @@ app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, 
 		$scope.showMeaning = false;
 		$scope.stylePhoto = {};
 	};
+	// end of CERCA TROVA hovering effect
 
+	// for styling the 'references...' and 3 stars
+	// on hovering the buttons
 	$scope.styleReference = function () {
 		$scope.referenceStyle = {
 			'color': 'rgba(219, 168, 65, 0.9)'
@@ -34,6 +38,7 @@ app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, 
 	$scope.unstyleReference = function () {
 		$scope.referenceStyle = {};
 	};
+	// end of hovering effect for the references and 3 stars
 
 	// store user's current page. this is for login and back to current page
 	$scope.currentPage = function(currentPage) {
@@ -48,5 +53,6 @@ app.controller('MeController', ['$scope', '$cookies', 'Flash', function($scope, 
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+
 }]);

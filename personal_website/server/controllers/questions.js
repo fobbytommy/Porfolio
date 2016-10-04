@@ -26,6 +26,7 @@ function QuestionController() {
 
 	// C[R]UD - get all the questions made by me ('fobbytommy')
 	this.index_question = function(req, res) {
+
 		Question.find({ username: 'fobbytommy' }, function(err, questions) {
 			if (err) { // just no way this is going to happen...but yeah
 				console.log("[index_question: ERROR] failed to get all the questions from db: ", err);
@@ -47,6 +48,7 @@ function QuestionController() {
 
 	// CR[U]D - update a question made by me ('fobbytommy')
 	this.update_question = function(req, res) {
+
 		var option = 	{
 							runValidators: false, // validate the updating info
 							new: false // obtain the updated date after the update is successful
@@ -78,8 +80,10 @@ function QuestionController() {
 				console.log("[delete_question: SUCCESS] successfully deleted a question from the DB!");
 				// nothing is returned
 			}
+
 		});
 	};
+	
 }
 
 module.exports = new QuestionController();

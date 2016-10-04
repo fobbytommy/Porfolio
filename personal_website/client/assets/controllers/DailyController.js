@@ -19,7 +19,7 @@ app.controller("DailyController", ['$scope', '$location', '$cookies', 'Flash', '
 		plansFactory.create_planner(function(planner) {
 			$scope.planners.push(planner);
 		});
-	}
+	};
 
 	// Index: request to get all the planners
 	plansFactory.index_planner(function(planners) {
@@ -31,13 +31,13 @@ app.controller("DailyController", ['$scope', '$location', '$cookies', 'Flash', '
 	$scope.update_planner = function(planner_id) {
 		plansFactory.update_planner(planner_id, $scope.updatePlanner);
 		location.reload();
-	}
+	};
 
 	// Delete a 'planner' from the db
 	$scope.delete_planner = function(planner_id) {
 		plansFactory.delete_planner(planner_id);
 		location.reload();
-	}
+	};
 
 	// Delete (patch) a SINGLE 'plan' from a specific planner
 	$scope.delete_single_plan = function(planner_id, plan) {
@@ -59,5 +59,6 @@ app.controller("DailyController", ['$scope', '$location', '$cookies', 'Flash', '
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+
 }]);

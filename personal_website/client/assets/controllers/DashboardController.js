@@ -38,23 +38,24 @@ app.controller("DashboardController", ['$scope', '$location', '$cookies', 'Flash
 				location.reload();
 			}
 		});
-	}
+	};
+	// this will gather the user data before updating
 	$scope.get_user_for_update = function(index) {
 		$scope.gotUser = $scope.users[index];
 		$scope.updateUser.username = $scope.gotUser.username;
 		$scope.updateUser.email = $scope.gotUser.email;
 		$scope.updateUser.authority_level = $scope.gotUser.authority_level;
-	}
+	};
 
 	// Delete a user from the DB
 	$scope.delete_user = function(delete_id) {
 		usersFactory.delete_user(delete_id);
 		// then just reload the page
 		location.reload();
-	}
+	};
 	$scope.user_delete_id = function (delete_id) {
 		$scope.delete_id = delete_id;
-	}
+	};
 
 	// logout function which removes the cookies and display message
 	$scope.logout = function() {
@@ -65,5 +66,6 @@ app.controller("DashboardController", ['$scope', '$location', '$cookies', 'Flash
 		$location.url('/me');
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+	
 }]);

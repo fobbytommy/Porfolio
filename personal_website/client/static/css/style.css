@@ -1,6 +1,5 @@
-/* -----------GLOBAL STYLES -------------------------------------------------*/
-/* Padding below the footer and lighter body text */
-
+/************************************
+							GLOBAL STYLES *************************************/
 body {
   	color: white;
 	background: url('/static/img/bg.jpg') repeat center center fixed;
@@ -11,15 +10,20 @@ body {
 .btn-transparent {
 	background-color: Transparent;
     background-repeat:no-repeat;
-    /*border: none;*/
     cursor:pointer;
     overflow: hidden;
-    /*outline:none;*/
 }
+/* due to navigation bar */
 .top_for_nav{
 	margin-top: 100px;
 }
-
+hr.hr_style {
+	border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
 .footer {
 	position: fixed;
 	bottom: 0;
@@ -30,8 +34,7 @@ body {
 	padding-top: 15px;
 }
 
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
+/* --------------------- end of GLOBAL STYLES --------------------------------*/
 
 
 
@@ -47,7 +50,6 @@ body {
 	left: 0;
 	z-index: 20;
 }
-
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper > .container {
 	padding-right: 0;
@@ -75,6 +77,7 @@ body {
 #active_font {
 	font-weight: 600;
 }
+/* TOMMY OH custom styling*/
 #navbar-brand {
 	color: rgba(247, 186, 100, 0.80);
 	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
@@ -112,10 +115,8 @@ body {
 #home_jumbotron {
 	margin-top: 70px;
 	word-wrap: break-word;
-	background-color: Transparent;
+	background-color: transparent;
 	opacity: 0.73;
-	/*background: url('/static/img/bg.jpg') repeat center center fixed;*/
-	background-size: cover;
 }
 #home_jumbotron h1, #home_jumbotron p {
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -183,13 +184,6 @@ body {
 		color: rgba(255, 255, 255, .7);
 	}
 }
-hr.hr_style {
-	border: 0;
-    height: 2px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
-	margin-top: 30px;
-	margin-bottom: 40px;
-}
 /*--------------------- END OF RESUME PAGE STYLING ---------------------------*/
 
 /*******************************
@@ -223,12 +217,10 @@ hr.hr_style {
 	border-radius:420px/124px;
 	margin: 0px;
 	opacity: .85;
-
 }
 .email-reveal:hover {
 	border: 1px solid #b300b3;
 	font-weight: 600;
-
 }
 .phone-reveal {
 	border: 1px solid #2f477a;
@@ -239,7 +231,6 @@ hr.hr_style {
 	border-radius:420px/124px;
 	margin: 0px;
 	opacity: .85;
-
 }
 .phone-reveal:hover {
 	border: 1px solid #3333ff;
@@ -265,7 +256,6 @@ hr.hr_style {
 /*******************************
  						SKILL STORAGE PAGE ************************************/
 .storage_main_div {
-	/*outline: 1px dotted red;*/
 	margin-left: 10px;
 	margin-right: 10px;
 }
@@ -295,7 +285,6 @@ hr.hr_style {
 	margin-bottom: 7px;
 }
 .technologies>li {
-	/*border: 1px solid blue;*/
 	background-color: rgba(7, 99, 247, .7);
 }
 h4 .technologies, p .technologies {
@@ -308,7 +297,6 @@ h4 .skills, p .skills{
 	color: rgba(211, 23, 79, .8);
 }
 .storage_block_div {
-	/*border: 1px dotted orange;*/
 	padding: 0px 20px 10px 20px;
 }
 .storage_block_div h3 {
@@ -323,7 +311,6 @@ h4 .skills, p .skills{
 	font-weight: 600;
 }
 .storage_block_div ul {
-	/*outline: 1px dotted blue;*/
 	padding-left: 6px;
 	padding-right: 6px;
 }
@@ -337,7 +324,6 @@ hr.storage_hr {
 /************************************
 							Self Q & A page ***********************************/
 .self_qa_main_div {
-	/*outline: 1px dotted blue;*/
 	margin-left: 10px;
 	margin-right: 10px;
 }
@@ -351,7 +337,6 @@ hr.storage_hr {
 	padding: 6px;
 }
 .self_questions {
-	/*outline: 1px dotted orange;*/
 	padding: 9px;
 }
 .self_question {
@@ -359,8 +344,8 @@ hr.storage_hr {
 	border: 2px groove rgb(188, 122, 16);
 	overflow-y: auto;
 	height: 160px;
-	-moz-box-shadow:    inset 0 0 17px rgba(206, 136, 6, .7);
-	-webkit-box-shadow: inset 0 0 17px rgba(206, 136, 6, .7);
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
 	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
 	padding: 6px 16px;
 	word-wrap: break-word;
@@ -398,7 +383,6 @@ hr.storage_hr {
  							Daily Plan page ***********************************/
 
 .daily_plan_contents {
-	/*outline: 1px dotted red;*/
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -415,7 +399,6 @@ hr.storage_hr {
 	font-size: 1.05em;
 }
 .daily_plans {
-	/*outline: 1px dotted yellow;*/
 	margin-top: 10px;
 }
 .daily_plans form {
@@ -423,19 +406,16 @@ hr.storage_hr {
 	margin-bottom: 20px;
 }
 .daily_plan {
-	/*background-color: orange;*/
 	height: 215px;
-	-webkit-box-shadow: 4px 4px 4px rgb(44, 3, 73);
-	-moz-box-shadow:    4px 4px 4px rgb(44, 3, 73);
+	-webkit-box-shadow: 3px 3px 3px rgba(165, 121, 8, 0.7);
+	-moz-box-shadow:    3px 3px 3px rgba(165, 121, 8, 0.7);
 	box-shadow:         3px 3px 3px rgba(165, 121, 8, 0.7);
 	margin-bottom: 28px;
 	word-wrap: break-word;
 	overflow-y: auto;
-	/*border: 1px solid rgba(242, 188, 50, .8);*/
 	padding: 6px;
 	background-color: rgba(242, 188, 50, .3);
 	color: rgb(51, 41, 11);
-	/*color: black;*/
 }
 .daily_plan:hover {
 	background-color: rgba(242, 188, 50, .9);
@@ -460,14 +440,11 @@ hr.storage_hr {
 	padding: 3px;
 	margin-bottom: 5px;
 }
-
-
 /*----------------------- end of Daily Plan page -----------------------------*/
 
 
 /************************************
  						About this Website page *******************************/
-
 .about_content_div {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -624,6 +601,12 @@ hr.storage_hr {
 	max-width: 330px;
 	padding: 15px;
 	margin: 0 auto;
+}
+.form-signin-heading {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {

@@ -1,6 +1,5 @@
 <div class="navbar-wrapper">
 	<div class="container">
-
 		<nav class="navbar navbar-inverse navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -39,7 +38,7 @@
 			</div>
 		</nav>
 	</div>
-</div>
+</div><!-- end of .navbar-wrapper -->
 
 <div class="container top_for_nav">
 	<flash-message class="" duration="4000" show-close="true"></flash-message>
@@ -73,13 +72,12 @@
 					<li ng-repeat="skill in current.skills | filter:SearchAll">{{ skill }}</li>
 				</ul>
 			</div>
-		</div>
+		</div><!-- end of .storage_block_div -->
 		<hr class="storage_hr">
 		<div class="row storage_block_div">
 			<div class="col-lg-12">
 				<h3>INVENTORY</h3>
-
-				<div class="">
+				<div>
 					<p>
 						These are the <span class="skills">skills</span> and <span class="technologies">technologies</span>, which I have learned and experienced before. These are set aside due to my current equipments and focus. Upon request, I can readapt all these quickly and efficiently.
 					</p>
@@ -91,12 +89,12 @@
 					<li ng-repeat="skill in inventory.skills | filter:SearchAll">{{ skill }}</li>
 				</ul>
 			</div>
-		</div>
+		</div><!-- end of .storage_block_div -->
 		<hr class="storage_hr">
 		<div class="row storage_block_div">
 			<div class="col-lg-12">
 				<h3>WISHLIST</h3>
-				<div class="">
+				<div>
 					<p>
 						I want to learn and adapt the following <span class="skills">skills</span> and <span class="technologies">technologies</span> in the near future.
 					</p>
@@ -107,9 +105,7 @@
 				<ul class="list-inline technologies">
 					<li ng-repeat="skill in wishlist.skills | filter:SearchAll">{{ skill }}</li>
 				</ul>
-
 			</div>
-		</div>
-	</div>
-
-</div>
+		</div><!-- end of .storage_block_div -->
+	</div><!-- end of .storage_main_div -->
+</div><!-- end of .container -->

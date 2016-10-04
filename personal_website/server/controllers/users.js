@@ -4,7 +4,9 @@ var User = mongoose.model("User");
 
 function UserController() {
 
+	// method for registering a user
 	this.register = function(req, res) {
+
 		var email = req.body.email;
 		var username = req.body.username;
 		var password = req.body.password;
@@ -40,7 +42,7 @@ function UserController() {
 		});
 	};
 
-
+	// method for login a user
 	this.login = function(req, res) {
 		var username = req.body.username;
 		var password = req.body.password;
@@ -50,7 +52,8 @@ function UserController() {
 				console.log("[login: ERROR] failed to find the user in the db!");
 				res.json({errors: "Username or password does not match!"});
 			}
-			else {
+			else { // the username is found in the db.
+				// now, compare the password to see if they match
 				if (bcrypt.compareSync(password, user.password) == false) {
 					console.log("[login: ERROR] password does not match!");
 					res.json({errors: "Username or password does not match!"});
@@ -65,6 +68,7 @@ function UserController() {
 
 	// R of CRUD: get all the users from the db and send back the info
 	this.index_users = function(req, res) {
+
 		// find all and remove _id, hashed password before sending back the data
 		User.find({}).select('-password -updatedAt -username_lowercase -__v').exec(function(err, users) {
 			if (err) {
@@ -79,6 +83,7 @@ function UserController() {
 					res.json( users );
 				}
 			}
+
 		});
 	}
 
@@ -99,9 +104,8 @@ function UserController() {
 				console.log("[update_user: SUCCESS] successfully updated a user from the DB");
 				res.json();
 			}
+
 		});
-
-
 	};
 
 	// D of CRUD: delete a single user

@@ -1,6 +1,5 @@
 <div class="navbar-wrapper">
 	<div class="container">
-
 		<nav class="navbar navbar-inverse navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -39,7 +38,7 @@
 			</div>
 		</nav>
 	</div>
-</div>
+</div><!-- end of .navbar-wrapper -->
 
 <div class="container top_for_nav">
 	<div class="self_qa_main_div">
@@ -83,7 +82,7 @@
 		</div>
 
 		<div class="row questions_box_overall">
-			<div class="col-lg-6 col-md-6 self_questions" ng-repeat="question in questions | orderBy:'-updatedAt' | filter:searchQuestion track by $index">
+			<div class="col-lg-6 col-md-6 self_questions" ng-repeat="question in questions | orderBy:'-createdAt' | filter:searchQuestion track by $index">
 				<div class="self_question">
 					<h4>
 						{{ question.question }}
@@ -99,10 +98,10 @@
 							<small ng-if="question.updatedAt != question.createdAt"><i>Updated on {{ question.updatedAt | date:"MM/dd/yyyy 'at' h a"}}</i></small>
 						</span>
 					</h5>
-				</div>
-			</div>
-		</div>
-	</div>
+				</div><!-- end of .self_question -->
+			</div><!-- end of .self_questions -->
+		</div><!-- end of .questions_box_overall -->
+	</div><!-- end of .self_qa_main_div -->
 
 
 	<!-- Question Delete Modal -->
@@ -122,7 +121,7 @@
 			</div>
 			</div>
 		</div>
-	</div>
+	</div><!-- end of Question Delete Modal -->
 
 	<!-- Question Update Modal -->
 	<div ng-if="username == 'fobbytommy' && authority_level == 9" class="modal fade" id="question_update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -160,5 +159,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
-</div>
+	</div><!-- end of Question Update Modal -->
+
+</div><!-- end of .container -->

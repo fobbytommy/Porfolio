@@ -2,13 +2,16 @@ app.factory("usersFactory", ['$http', function($http) {
 
 	function UsersFactory() {
 
+		// call the server to process the registration process
 		this.register = function(newUser, callback) {
 			$http.post('/register', newUser).then(
 				function success(response) {
 					if (typeof(response.data.errors) != 'undefined') {
+						// send back the validation errors
 						callback(false, response.data.errors);
 					}
 					else {
+						// registration is successful!
 						callback(true, response.data);
 					}
 				},
@@ -18,13 +21,16 @@ app.factory("usersFactory", ['$http', function($http) {
 			);
 		};
 
+		// call the server to process the login
 		this.login = function(loginUser, callback) {
 			$http.post('/login', loginUser).then(
 				function success(response) {
 					if (typeof(response.data.errors) != 'undefined') {
+						// did not meet the email or password. send back the error message
 						callback(false, response.data.errors);
 					}
 					else {
+						// login is successful!
 						callback(true, response.data);
 					}
 				},

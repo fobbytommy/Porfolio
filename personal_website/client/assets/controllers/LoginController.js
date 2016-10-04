@@ -16,6 +16,7 @@ app.controller("LoginController", ['$scope', '$location', '$cookies', 'Flash', '
 
 	$scope.newUser = {};
 
+	// registration request
 	$scope.register = function() {
 		usersFactory.register($scope.newUser, function(status, response) {
 			if (status == false) {
@@ -37,16 +38,20 @@ app.controller("LoginController", ['$scope', '$location', '$cookies', 'Flash', '
 				$cookies.put("username", response.username);
 				$cookies.put("authority_level", response.authority_level);
 
+				// for sake of removing the modal fade
+				// instead of reloading
 				$('#register_modal').modal('hide');
 				$('body').removeClass('modal-open');
 				$('.modal-backdrop').remove();
+
 				// redirect the user to the same page they register from
 				$location.url($cookies.get("currentPage"));
 				Flash.create("success", "Registration is successful! Welcome, <strong>" + response.username + "</strong>!!!", 4000, {}, true);
 			}
 		});
-	}
+	};
 
+	// login request
 	$scope.login = function() {
 		usersFactory.login($scope.loginUser, function(status, response) {
 			if (status == false) { // login failed, send error message
@@ -65,6 +70,6 @@ app.controller("LoginController", ['$scope', '$location', '$cookies', 'Flash', '
 				$location.url($cookies.get("currentPage"));
 			}
 		});
-	}
+	};
 
 }]);

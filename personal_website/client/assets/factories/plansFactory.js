@@ -64,7 +64,6 @@ app.factory("plansFactory", ['$http', function($http) {
 			);
 		};
 
-
 	}
 
 	return new PlansFactory();

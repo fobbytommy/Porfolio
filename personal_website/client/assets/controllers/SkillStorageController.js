@@ -12,7 +12,6 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 		}
 	})();
 
-
 	// CURRENT EQUIPMENTS
 	$scope.current = {
 		technologies: 	[	"MongoDB",
@@ -46,7 +45,7 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 					"RESTful Routing",
 					"Web Socket Connection"
 				]
-	}
+	};
 
 	// INVENTORY
 	$scope.inventory = {
@@ -70,7 +69,7 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 					"Test-Driven Development (TDD)",
 					"Creating Custom JS libraries"
 				]
-	}
+	};
 
 	// WISHLIST
 	$scope.wishlist = {
@@ -79,7 +78,7 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 		skills:	[	"SASS",
 					"ReactJS"
 				]
-	}
+	};
 
 	// store user's current page. this is for login and back to current page
 	$scope.currentPage = function() {
@@ -94,5 +93,6 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+	
 }]);

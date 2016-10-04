@@ -1,3 +1,4 @@
+// require all the controllers
 var contacts = require("./../controllers/contacts");
 var users = require("./../controllers/users");
 var questions = require("./../controllers/questions");
@@ -9,8 +10,8 @@ module.exports = function(app) {
 	app.post("/contact/email", contacts.send_email); // for sending a email to me
 
 	// deals with http requests from the 'Login' page
-	app.post("/register", users.register);
-	app.post("/login", users.login);
+	app.post("/register", users.register); // register process with validation
+	app.post("/login", users.login); // login process to check email & password
 
 	// [RESTful] deals with http requests from the 'Self Q & A' page
 	app.post("/question", questions.create_question);

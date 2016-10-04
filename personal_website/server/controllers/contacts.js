@@ -1,6 +1,8 @@
+// require nodemailer module which will help me send email to me
 var nodemailer = require('nodemailer');
 
 function ContactController() {
+
 	this.send_email = function(req, res) {
 
 		// create reusable transporter object using the default SMTP transport
@@ -25,8 +27,7 @@ function ContactController() {
 				res.json({ success: "Thank you for sending me an email! I will get back to you as soon as possible!"});
 			}
 		});
-	}
-
+	};
 
 }
 

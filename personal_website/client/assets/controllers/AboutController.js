@@ -26,5 +26,6 @@ app.controller("AboutController", ['$scope', '$location', '$cookies', 'Flash', f
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+
 }]);

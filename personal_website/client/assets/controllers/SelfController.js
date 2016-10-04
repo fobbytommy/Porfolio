@@ -30,7 +30,7 @@ app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', 'q
 				Flash.create("success", "Successfully added a new question!", 4000, {}, true);
 			}
 		});
-	}
+	};
 
 	// get all the questions made by 'fobbytommy' (by me)
 	questionsFactory.index_question(function(questions) {
@@ -43,22 +43,23 @@ app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', 'q
 		questionsFactory.update_question(question_id, $scope.updateQuestion);
 		// then just reload the page
 		location.reload();
-	}
+	};
+	// get the question before update to show the current data
 	$scope.get_question_for_update = function(index) {
 		$scope.gotQuestion = $scope.questions[$scope.questions.length - 1 - index];
 		$scope.updateQuestion.question = $scope.gotQuestion.question;
 		$scope.updateQuestion.answer = $scope.gotQuestion.answer;
-	}
+	};
 
 	// Delete a question
 	$scope.delete_question = function(delete_id) {
 		questionsFactory.delete_question(delete_id);
 		// then just reload the page
 		location.reload();
-	}
+	};
 	$scope.save_delete_id = function (delete_id) {
 		$scope.delete_id = delete_id;
-	}
+	};
 
 	// store user's current page. this is for login and back to current page
 	$scope.currentPage = function() {
@@ -73,5 +74,6 @@ app.controller("SelfController", ['$scope', '$location', '$cookies', 'Flash', 'q
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
+
 }]);

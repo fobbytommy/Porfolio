@@ -2,8 +2,9 @@ app.factory("contactsFactory", ['$http', function($http) {
 
 	function ContactsFactory() {
 
+		// call the server to process the email
 		this.send_email = function(newMessage, callback) {
-			console.log(newMessage);
+
 			$http.post('/contact/email', newMessage).then(
 				function success(response) {
 					// if there is an error key, send the error.
@@ -19,9 +20,9 @@ app.factory("contactsFactory", ['$http', function($http) {
 					console.log("[send_email: ERROR] the server has failed to send email to Tommy!");
 				}
 			);
-		}
+		};
 
 	}
 
-	return new ContactsFactory;
+	return new ContactsFactory();
 }]);

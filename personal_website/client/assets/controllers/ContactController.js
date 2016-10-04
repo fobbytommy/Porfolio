@@ -27,7 +27,7 @@ app.controller("ContactController", ['$scope', '$location', '$cookies', 'contact
 				Flash.create('success', response, 4000, {}, true);
 			}
 		});
-	}
+	};
 
 
 	// store user's current page. this is for login and back to current page
@@ -43,6 +43,6 @@ app.controller("ContactController", ['$scope', '$location', '$cookies', 'contact
 		$scope.login_status = false; // login status is now off
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
-	}
+	};
 
 }]);
