@@ -1,0 +1,111 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li id="active_font" class="dropdown active">
+							<a href="#/skills" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="active"><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage()"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/skills" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+<div class="container top_for_nav">
+	<flash-message class="" duration="4000" show-close="true"></flash-message>
+	<div class="storage_main_div">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>SKILL STORAGE</h2>
+				<h4>a laundry list of my <span class="skills">skills</span> and <span class="technologies">technologies</span></h4>
+			</div>
+		</div>
+
+		<!-- search bar -->
+		<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 input-group">
+			<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+  			<input type="serach" class="form-control" placeholder="search skills or technologies" aria-describedby="basic-addon1" ng-model="SearchAll">
+		</div>
+
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>CURRENT EQUIPMENTS</h3>
+				<div class="">
+					<p>
+						I am currently using the following <span class="skills">skills</span> and <span class="technologies">technologies</span> all of the time for my web development.
+					</p>
+				</div>
+				<ul class="list-inline technologies">
+					<li ng-repeat="technology in current.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline skills">
+					<li ng-repeat="skill in current.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
+			</div>
+		</div><!-- end of .storage_block_div -->
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>INVENTORY</h3>
+				<div>
+					<p>
+						These are the <span class="skills">skills</span> and <span class="technologies">technologies</span>, which I have learned and experienced before. These are set aside due to my current equipments and focus. Upon request, I can readapt all these quickly and efficiently.
+					</p>
+				</div>
+				<ul class="list-inline technologies">
+					<li ng-repeat="technology in inventory.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline skills">
+					<li ng-repeat="skill in inventory.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
+			</div>
+		</div><!-- end of .storage_block_div -->
+		<hr class="storage_hr">
+		<div class="row storage_block_div">
+			<div class="col-lg-12">
+				<h3>WISHLIST</h3>
+				<div>
+					<p>
+						I want to learn and adapt the following <span class="skills">skills</span> and <span class="technologies">technologies</span> in the near future.
+					</p>
+				</div>
+				<ul class="list-inline skills">
+					<li ng-repeat="technology in wishlist.technologies | filter:SearchAll">{{ technology }}</li>
+				</ul>
+				<ul class="list-inline technologies">
+					<li ng-repeat="skill in wishlist.skills | filter:SearchAll">{{ skill }}</li>
+				</ul>
+			</div>
+		</div><!-- end of .storage_block_div -->
+	</div><!-- end of .storage_main_div -->
+</div><!-- end of .container -->

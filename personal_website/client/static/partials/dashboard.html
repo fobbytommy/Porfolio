@@ -1,0 +1,140 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li class="dropdown">
+							<a href="#/dashboard" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="active_font" class="active" ng-show="login_status" ng-if="username == 'fobbytommy' && authority_level == 9"><a href="#/dashboard"><i class="fa fa-users" aria-hidden="true"></i>   dashboard</a></li>
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage('/me')"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/dashboard" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+
+<div class="container top_for_nav">
+	<div class="dashboard_contents" ng-if="username == 'fobbytommy' && authority_level == 9">
+		<h2>Dashboard</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Joined Date</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Authority</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users track by $index">
+						<td>{{ $index }}</td>
+						<td>{{ user.createdAt | date:"MM/dd/yyyy"}}</td>
+						<td>{{ user.username }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.authority_level }}</td>
+						<td>
+							<button class="btn btn-foursquare btn-xs" type="button" name="button" ng-if="user.authority_level < 9" ng-click="user_delete_id(user._id)" data-toggle="modal" data-target="#user_delete_modal">Delete</button>
+							<button class="btn btn-microsoft btn-xs" type="button" name="button" ng-if="user.authority_level < 9" ng-click="get_user_for_update($index)" data-toggle="modal" data-target="#user_update_modal">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- end of .table responsive -->
+	</div><!-- end of .dashboard_contents -->
+</div><!-- end of .container -->
+
+
+<!-- User Delete Modal -->
+<div ng-if="username == 'fobbytommy' && authority_level == 9" class="modal fade" id="user_delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal_email_div">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+			</div>
+		<div class="modal-body">
+			Are you sure you want to delete this user?
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-danger" ng-click="delete_user(delete_id)" data-dismiss="modal">Confirm Delete</button>
+		</div>
+		</div>
+	</div>
+</div><!-- end of User Delete Modal -->
+
+<!-- User Update Modal -->
+<div ng-if="username == 'fobbytommy' && authority_level == 9" class="modal fade" id="user_update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal_email_div">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Update this User</h4>
+			</div>
+			<form class="form-horizontal" ng-submit="update_user(gotUser._id)">
+				<div class="modal-body">
+					<!-- displaying topic errors if there are any. -->
+					<div ng-if="updateErrors">
+						<div class="alert alert-danger fade in topicErrors">
+							<strong>Error!</strong> {{ updateErrors }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-2 control-label">Username</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="username" ng-value="updateUser.username" placeholder="{{ gotUser.username }}" ng-model="updateUser.username">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="email" ng-value="updateUser.email" placeholder="{{ gotUser.email }}" ng-model="updateUser.email">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="authority" class="col-sm-2 control-label">Authority</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="authority" ng-value="updateUser.authority_level" placeholder="{{ gotUser.authority_level }}" ng-model="updateUser.authority_level">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div><!-- end of User Update Modal -->

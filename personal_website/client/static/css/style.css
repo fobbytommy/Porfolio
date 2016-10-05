@@ -1,0 +1,651 @@
+/************************************
+							GLOBAL STYLES *************************************/
+body {
+  	color: white;
+	background: url('/static/img/bg.jpg') repeat center center fixed;
+	background-size: cover;
+	margin-bottom: 22px;
+}
+/* for custom transparent button*/
+.btn-transparent {
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    overflow: hidden;
+}
+/* due to navigation bar */
+.top_for_nav{
+	margin-top: 100px;
+}
+hr.hr_style {
+	border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 43px;
+	/*background-color: red;*/
+	padding-top: 15px;
+}
+
+/* --------------------- end of GLOBAL STYLES --------------------------------*/
+
+
+
+
+
+/************************************
+ 				   		Navigation Bar Styling ********************************/
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
+}
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+	padding-right: 0;
+	padding-left: 0;
+}
+.navbar-wrapper .navbar {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+	width: auto;
+}
+.navbar {
+	background-color: rgba(10, 3, 17, 0.93);
+	border: 2px groove rgba(247, 186, 81, 0.70);
+	border-radius: 0px;
+}
+.navbar-nav li a {
+	padding-left: 27px;
+	padding-right: 27px;
+}
+.active {
+	opacity: .84;
+}
+#active_font {
+	font-weight: 600;
+}
+/* TOMMY OH custom styling*/
+#navbar-brand {
+	color: rgba(247, 186, 100, 0.80);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+#navbar-brand:hover {
+	color: rgba(247, 186, 81, 1);
+}
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+}
+/*---------------------- end of Navigation Bar Styling -----------------------*/
+
+
+/***************************************
+						HOME PAGE ********************************************/
+#home_jumbotron {
+	margin-top: 70px;
+	word-wrap: break-word;
+	background-color: transparent;
+	opacity: 0.73;
+}
+#home_jumbotron h1, #home_jumbotron p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-shadow: #1b0721 5px 5px 5px;
+}
+#home_jumbotron p {
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 1.10em;
+	opacity: 0.9;
+}
+/* "get to know me" button custom */
+.know_me_btn {
+	border: 1px #3e104c groove;
+	border-radius: 20px;
+}
+.know_me_btn:hover {
+	color: #ffe568;
+}
+/*-------------------- END OF HOME PAGE STYLING ------------------------------*/
+
+/***************************************
+						   ME PAGE ********************************************/
+.me_content_div {
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 20px;
+}
+.me_content_div p span {
+	font-weight: 600;
+	color: #ffca51;
+}
+.me_photo_div {
+	margin-top: 30px;
+	height: 335px;
+}
+.me_photo_div h2 {
+	color: #ffca51;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-shadow: #3f300b 3px 3px 2px;
+	font-weight: 800;
+	opacity: 0.6;
+}
+.cerca_trova h3 {
+	margin-top: 0px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	text-shadow: #3f300b 3px 3px 2px;
+	font-weight: 600;
+	opacity: 0.7;
+	color: #ffca51;
+	display: inline-block;
+}
+
+/*---------------------- END OF ME PAGE STYLING ------------------------------*/
+
+/********************************
+						RESUME PAGE *******************************************/
+.resume_div {
+	margin-bottom: 30px;
+}
+.references_div {
+	color: rgba(61, 59, 56, .4);
+}
+@media (max-width: 768px) {
+	.references_div {
+		color: rgba(255, 255, 255, .7);
+	}
+}
+/*--------------------- END OF RESUME PAGE STYLING ---------------------------*/
+
+/*******************************
+ 						CONTACT PAGE ******************************************/
+.contact_div_main {
+	padding: 0px 23px;
+	margin-bottom: 40px;
+}
+.contact_div_main button {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	word-wrap: break-word;
+	border-radius:420px/124px;
+	opacity: .78;
+}
+.contact_div_main button i {
+	text-align: center;
+	word-wrap: break-word;
+}
+.contact_info_div {
+	padding: 0px 15px;
+	margin-bottom: 24px;
+}
+.email-reveal {
+	border: 1px solid #5b0b7f;
+	background-color: #720e9e;
+	border-radius: 4px;
+	color: #ffca51;
+	padding: 23px 8px 22px 8px;
+	border-radius:420px/124px;
+	margin: 0px;
+	opacity: .85;
+}
+.email-reveal:hover {
+	border: 1px solid #b300b3;
+	font-weight: 600;
+}
+.phone-reveal {
+	border: 1px solid #2f477a;
+	background-color: #3b5998;
+	border-radius: 4px;
+	color: #ffca51;
+	padding: 23px 8px 22px 8px;
+	border-radius:420px/124px;
+	margin: 0px;
+	opacity: .85;
+}
+.phone-reveal:hover {
+	border: 1px solid #3333ff;
+	font-weight: 600;
+}
+.modal_email_div {
+	background: url('/static/img/black_board.jpg') repeat fixed;
+}
+.close {
+	color: white;
+	opacity: 1;
+	text-shadow: none;
+}
+.close:hover {
+	color: #ffca51;
+	opacity: 1;
+}
+#myModalLabel {
+	color: #ffca51;
+}
+/*---------------------------end of CONTACT page -----------------------------*/
+
+/*******************************
+ 						SKILL STORAGE PAGE ************************************/
+.storage_main_div {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.storage_main_div h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.storage_main_div h4 {
+	color: rgba(144, 136, 150, .7);
+	font-weight: 600;
+	font-size: 1.05em;
+}
+@media (max-width: 768px) {
+	.storage_main_div h2 {
+		text-align: center;
+	}
+	.storage_main_div h4 {
+		text-align: center;
+	}
+}
+.list-inline>li {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 5px;
+	margin-bottom: 7px;
+}
+.technologies>li {
+	background-color: rgba(7, 99, 247, .7);
+}
+h4 .technologies, p .technologies {
+	color: rgba(7, 99, 247, .8);
+}
+.skills>li {
+	background-color: rgba(211, 23, 79, .6);
+}
+h4 .skills, p .skills{
+	color: rgba(211, 23, 79, .8);
+}
+.storage_block_div {
+	padding: 0px 20px 10px 20px;
+}
+.storage_block_div h3 {
+	color: rgba(247, 203, 101, 0.8);
+	text-shadow: rgba(249, 241, 222, .3) 1px 2px 4px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 1.4em;
+	font-weight: 600;
+}
+.storage_block_div p {
+	color: rgba(214, 210, 203, 0.9);
+	font-weight: 600;
+}
+.storage_block_div ul {
+	padding-left: 6px;
+	padding-right: 6px;
+}
+hr.storage_hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(255, 255, 255, .8);
+}
+/*------------------------ end of SKILL STORAGE page -------------------------*/
+
+/************************************
+							Self Q & A page ***********************************/
+.self_qa_main_div {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.self_qa_main_div h1 {
+	color: rgba(247, 186, 81, 0.7);
+	text-shadow: rgba(44, 10, 68, .9) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.questions_box_overall {
+	padding: 6px;
+}
+.self_questions {
+	padding: 9px;
+}
+.self_question {
+	background-color: rgba(48, 3, 79, .1);
+	border: 2px groove rgb(188, 122, 16);
+	overflow-y: auto;
+	height: 160px;
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
+	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
+	padding: 6px 16px;
+	word-wrap: break-word;
+}
+.self_question:hover {
+	background-color: rgba(11, 1, 22, .6);
+
+}
+.self_question h4 {
+	color: rgba(242, 187, 77, 0.9);
+	font-weight: 600;
+}
+.self_question h5 {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: rgba(239, 239, 239, 0.9);
+	padding: 4px;
+	border-radius: 4px;
+}
+.self_question h5 span{
+	display: block;
+}
+@media (max-width: 768px) {
+	.self_qa_main_div h1 {
+		text-align: center;
+	}
+}
+@media (max-width: 992px) {
+	.self_question {
+		height: auto;
+	}
+}
+/*---------------------------- end of Self Q & A -----------------------------*/
+
+/************************************
+ 							Daily Plan page ***********************************/
+
+.daily_plan_contents {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.daily_plan_contents h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.daily_plan_contents h4 {
+	color: rgba(144, 136, 150, .7);
+	font-weight: 600;
+	font-size: 1.05em;
+}
+.daily_plans {
+	margin-top: 10px;
+}
+.daily_plans form {
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+.daily_plan {
+	height: 215px;
+	-webkit-box-shadow: 3px 3px 3px rgba(165, 121, 8, 0.7);
+	-moz-box-shadow:    3px 3px 3px rgba(165, 121, 8, 0.7);
+	box-shadow:         3px 3px 3px rgba(165, 121, 8, 0.7);
+	margin-bottom: 28px;
+	word-wrap: break-word;
+	overflow-y: auto;
+	padding: 6px;
+	background-color: rgba(242, 188, 50, .3);
+	color: rgb(51, 41, 11);
+}
+.daily_plan:hover {
+	background-color: rgba(242, 188, 50, .9);
+}
+.daily_plan_col:first-child div {
+	background-color: rgba(242, 188, 50, .9);
+	color: black;
+}
+.daily_plan_col:first-child div .planner_createdAt {
+	background-color: rgba(216, 136, 17, 0.6);
+	font-weight: 600;
+	color: rgb(40, 5, 86);
+}
+.daily_plan ul {
+	padding-left: 15px;
+	list-style-type: square;
+}
+.planner_createdAt {
+	background-color: rgba(216, 136, 17, 0.3);
+	border-radius: 5px;
+	text-align: center;
+	padding: 3px;
+	margin-bottom: 5px;
+}
+/*----------------------- end of Daily Plan page -----------------------------*/
+
+
+/************************************
+ 						About this Website page *******************************/
+.about_content_div {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.about_content_div h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+	margin-bottom: 40px;
+}
+.about_content_div h4 {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	color: rgba(242, 187, 77, 0.7);
+	font-weight: 600;
+	text-shadow: rgba(255, 255, 255, 0.20) 3px 2px 3px;
+}
+.about_content_div h4:nth-of-type(2) {
+	margin-bottom: 14px;
+}
+.about_technology {
+	height: 287px;
+	padding: 5px 15px;
+	background-color: rgba(48, 3, 79, .1);
+	border: 2px groove rgb(188, 122, 16);
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
+	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
+	word-wrap: break-word;
+	margin-bottom: 20px;
+}
+.about_technology h5, .summary_content h5 {
+	padding-left: 4px;
+	color: rgba(255, 216, 145, .8);
+	font-weight: 600;
+}
+.about_technology ul {
+	padding-left: 33px;
+	color: rgba(255, 255, 255, .8);
+}
+.about_technology ul li ul {
+	padding-left: 30px;
+	color: rgba(242, 233, 218, .7);
+}
+.about_technology:hover {
+	background-color: rgba(11, 1, 10, .7);
+}
+.summary_content_row {
+	padding: 0 7px 0px 7px;
+}
+.summary_content_col {
+	padding: 8px 8px;
+}
+.summary_content {
+	padding: 5px 25px 10px 17px;
+	background-color: rgba(114, 2, 2, .13);
+	border: 2px groove rgb(188, 122, 16);
+	-moz-box-shadow:    inset 0 0 17px rgba(249, 241, 224, .7);
+	-webkit-box-shadow: inset 0 0 17px rgba(249, 241, 224, .7);
+	box-shadow:         inset 0 0 17px rgba(249, 241, 224, .7);
+	word-wrap: break-word;
+}
+.summary_content:hover {
+	background-color: rgba(20, 1, 1, .80);
+}
+.summary_content ul {
+	padding-left: 25px;
+}
+.summary_content img {
+	border: 3px solid rgba(115, 117, 87, .9);
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.summary_content ul {
+	color: rgba(255, 255, 255, .8);
+}
+.summary_content ul li ul{
+	color: rgba(242, 233, 218, .7);
+}
+.summary_3_way {
+	height: 200px;
+}
+.summary_2_way_top {
+	height: 958px;
+}
+.summary_2_way_bot {
+	height: 640px;
+}
+.summary_2_way_row {
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-left: 7px;
+	padding-right: 8px;
+	margin-bottom: 18px;
+}
+@media (max-width: 1200px) {
+	.summary_3_way {
+		height: 230px;
+	}
+}
+@media (max-width: 992px) {
+	.summary_3_way {
+		height: 225px;
+	}
+	.about_content_div h2, .about_content_div h4 {
+		text-align: center;
+	}
+}
+@media (max-width: 768px) {
+	.summary_3_way {
+		height: auto;
+	}
+	.about_technology {
+		height: auto;
+	}
+}
+@media (max-width: 1200px) {
+	.summary_2_way_top {
+		height: auto;
+	}
+	.summary_2_way_bot {
+		height: auto;
+	}
+}
+/*---------------- end of About this Website Plan page -----------------------*/
+
+
+/************************************
+ 							Dashboard page ************************************/
+.dashboard_contents {
+	padding: 0 10px;
+}
+.dashboard_contents h2 {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.dashboard_contents table {
+	background-color: rgba(12, 0, 25, 0.6);
+	border: 4px double rgba(247, 186, 81, .6);
+}
+.dashboard_contents table th {
+	color: rgb(255, 199, 79);
+}
+
+/*------------------------- end of Dashboard page ----------------------------*/
+
+/***********************************
+							Login Page ****************************************/
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+.form-signin-heading {
+	color: rgba(247, 186, 81, 0.79);
+	text-shadow: rgb(44, 10, 68) 3px 2px 3px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin .checkbox {
+	font-weight: normal;
+}
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	      box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+.form-signin input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.form-signin h2, .form-signin h4 {
+	text-align: center;
+}
+.register_button:hover {
+	text-decoration: none;
+}
+.registerError div {
+	margin: 0 0 2px 0;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+/*------------------------ end of Login Page --------------------------------*/

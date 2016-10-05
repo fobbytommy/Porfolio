@@ -1,0 +1,116 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li id="active_font" class="active"><a href="#/contact">contact</a></li>
+						<li class="dropdown">
+							<a href="#/contact" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage()"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/contact" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+
+<div class="container top_for_nav">
+	<flash-message class="" duration="4000" show-close="true"></flash-message>
+	<hr class="hr_style">
+	<div class="contact_div_main">
+		<div class="row">
+			<div class="contact_info_div col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<button class="btn btn-block btn btn-yahoo" ng-click="reveal_email = !reveal_email" ng-hide="reveal_email">
+					<i class="fa fa-envelope" aria-hidden="true"></i>   email address
+				</button>
+				<h5 class="email-reveal text-center"  ng-show="reveal_email">tommyhyungjinoh@gmail.com</h5>
+			</div>
+			<div class="contact_info_div col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<button class="btn btn-block btn-facebook" ng-click="reveal_phone = !reveal_phone" ng-hide="reveal_phone">
+					<i class="fa fa-phone" aria-hidden="true"></i>   phone number
+				</button>
+				<h5 class="phone-reveal text-center" ng-show="reveal_phone">818 - 568 - 4095</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-md-offset-3 col-lg-offset-3">
+				<button class="btn btn-block btn-flickr" data-toggle="modal" data-target="#send_email_modal">
+					<i class="fa fa-heart" aria-hidden="true"></i>     can't wait?
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<hr class="hr_style">
+</div><!-- /.container -->
+
+
+
+
+<!-- Modal for email form -->
+<div class="modal fade" id="send_email_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal_email_div">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Email me now!</h4>
+			</div>
+			<form class="form-horizontal" ng-submit="send_email()">
+				<div class="modal-body">
+					<!-- displaying topic errors if there are any. -->
+					<!-- displaying flash if there are any. -->
+					<flash-message duration="30000" show-close="false"></flash-message>
+					<div class="form-group">
+						<label for="subject" class="col-sm-2 control-label">Subject</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subject" placeholder="subject" ng-model="newMessage.subject" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="email" placeholder="example@domain.com" ng-model="newMessage.from" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="message" class="col-sm-2 control-label">Message</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="6" id="message" placeholder="reason for the contact" ng-model="newMessage.text" required></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Send</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div><!-- end of .modal -->

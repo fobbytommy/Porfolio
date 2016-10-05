@@ -1,0 +1,78 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li id="active_font" class="dropdown active">
+							<a href="#/daily" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li class="active"><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage()"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/daily" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+<div class="container top_for_nav">
+	<flash-message class="" duration="4000" show-close="true"></flash-message>
+	<div class="daily_plan_contents">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>Daily Plan</h2>
+				<h4>see my everyday schedule!</h4>
+			</div>
+		</div>
+		<div class="row" ng-if="username == 'fobbytommy' && authority_level == 9">
+			<div class="col-lg-5 col-md-6 col-sm-6">
+				<button class="btn btn-info btn-block" type="button" ng-click="create_planner()">Create a day planner</button>
+			</div>
+		</div>
+		<div class="row daily_plans">
+			<div class="col-lg-3 col-md-4 col-sm-6 daily_plan_col" ng-repeat="planner in planners | orderBy:'-createdAt'">
+				<div class="daily_plan">
+					<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-flickr btn-block" ng-click="delete_planner(planner._id)">Remove this planner</button>
+					<div class="planner_createdAt">
+						{{ planner.createdAt | date:'fullDate' }}
+					</div>
+					<ul>
+						<li ng-repeat="plan in planner.plan">
+							<button ng-if="username == 'fobbytommy' && authority_level == 9" type="button" class="btn btn-pinterest btn-xs" ng-click="delete_single_plan(planner._id, plan)">Delete</button>
+							{{ plan }}
+						</li>
+					</ul>
+				</div>
+				<form ng-if="username == 'fobbytommy' && authority_level == 9" ng-submit="update_planner(planner._id)">
+					<textarea class="form-control" rows="2" id="answer" placeholder="add a new plan"  ng-model="updatePlanner.plan"></textarea>
+					<button type="submit" class="btn btn-success btn-xs">Add a plan</button>
+				</form>
+			</div>
+		</div><!-- end of .daily_plans -->
+	</div><!-- end of .daily_plan_contents -->
+</div><!-- end of .container -->

@@ -1,0 +1,71 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li id="active_font" class="active"><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li class="dropdown">
+							<a href="#/me" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li ng-show="login_status" ng-if="username == 'fobbytommy' && authority_level == 9"><a href="#/dashboard"><i class="fa fa-users" aria-hidden="true"></i>   dashboard</a></li>
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage('/me')"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/me" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+
+<div class="container top_for_nav">
+	<flash-message class="" duration="4000" show-close="true"></flash-message>
+	<div class="row">
+		<div class="col-md-5 col-md-push-7 me_photo_div">
+			<img class="featurette-image center-block img-circle" src="/static/img/me.jpg" alt="me" height="280" width="280" ng-style="stylePhoto">
+			<h2 class="text-center" ng-show="showMeaning">IM READY.</h2>
+		</div>
+		<div class="col-md-7 col-md-pull-5 me_content_div">
+			<p>
+				<span>Hi there! My name is Tommy Oh. Don't worry, I'm actually really nice! I'm a full stack web developer who specializes in MEAN. And I'm available for hire!</span>
+			</p>
+			<p>
+				Prior to taking an online coding bootcamp at Coding Dojo, I was a Sales / Project Engineer at Mitsubishi Electric, US Inc. - Elevator & Escalator Division. After two years of working, I decided to leave the company to seek for other opportunities. I wanted to do things and be stressed about things that I loved about. I finally found it.
+			</p>
+			<div class="cerca_trova text-center">
+				<h3 ng-mouseover="hoverInCerca()" ng-hide="showMeaning">CERCA TROVA</h3>
+				<h3 ng-mouseleave="hoverOutMeaning()" ng-show="showMeaning"><span class="text-muted">seek and ye shall find</span></h3>
+			</div>
+			<p>
+				Right now, I'm just working to prove that I can create some awesome web contents. Each time I struggle, I become a better developer. I'm confident that, along with the skills obtained from the bootcamp, my previous experience and discipline in engineering are more than enough to qualify as any developer's position. I'm a self-motivated person with the abilities to work both individually and together as a team. I'm a perfectionist who cares most about his projects. I can't wait to put myself out there and show everyone how good I am. I have nothing to lose and I'm not scared of anything.
+			</p>
+			<p>
+				I'm currently in Fullerton, California. When I'm not coding at my desk, I love to run outside preparing for the upcoming half marathons.
+			</p>
+		</div>
+	</div>
+</div><!-- /.container -->

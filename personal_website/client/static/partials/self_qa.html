@@ -1,0 +1,164 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li id="active_font" class="dropdown active">
+							<a href="#/self" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li class="active"><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage()"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/self" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+<div class="container top_for_nav">
+	<div class="self_qa_main_div">
+		<flash-message class="" duration="4000" show-close="true"></flash-message>
+		<h1>Self Q&middot;A</h1>
+		<div class="row" ng-if="username == 'fobbytommy' && authority_level == 9">
+			<div class="col-lg-7 col-md-8">
+				<form class="form-horizontal" ng-submit="create_question()">
+					<!-- displaying topic errors if there are any. -->
+					<div ng-if="questionErrors">
+						<div ng-repeat="error in questionErrors" class="alert alert-danger fade in">
+							<strong>Error!</strong> {{ error.message }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="question" class="col-sm-2 control-label">Question</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="question" placeholder="put question here" ng-model="newQuestion.question">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="answer" class="col-sm-2 control-label">Answer</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="4" id="answer" placeholder="answer your own question here"  ng-model="newQuestion.answer"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-twitter">Add New Q & A</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div><!-- end of topic_form_div -->
+
+
+		<div class="col-lg-5 col-md-5 col-sm-7 input-group">
+			<span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+				<input type="serach" class="form-control" placeholder="search questions or answers" aria-describedby="basic-addon1" ng-model="searchQuestion">
+		</div>
+
+		<div class="row questions_box_overall">
+			<div class="col-lg-6 col-md-6 self_questions" ng-repeat="question in questions | orderBy:'-createdAt' | filter:searchQuestion track by $index">
+				<div class="self_question">
+					<h4>
+						{{ question.question }}
+						<span ng-if="username == 'fobbytommy' && authority_level == 9">
+							<button class="btn btn-bitbucket btn-xs" type="button" name="button" ng-click="get_question_for_update($index)"  data-toggle="modal" data-target="#question_update_modal">Update</button>
+							<button class="btn btn-pinterest btn-xs" type="button" name="button" ng-click="save_delete_id(question._id)" data-toggle="modal" data-target="#question_delete_modal">Delete</button>
+						</span>
+					</h4>
+					<h5>
+						{{ question.answer }}
+						<span>
+							<small ng-if="question.updatedAt == question.createdAt"><i>Added on {{ question.createdAt | date:"MM/dd/yyyy 'at' h a"}}</i></small>
+							<small ng-if="question.updatedAt != question.createdAt"><i>Updated on {{ question.updatedAt | date:"MM/dd/yyyy 'at' h a"}}</i></small>
+						</span>
+					</h5>
+				</div><!-- end of .self_question -->
+			</div><!-- end of .self_questions -->
+		</div><!-- end of .questions_box_overall -->
+	</div><!-- end of .self_qa_main_div -->
+
+
+	<!-- Question Delete Modal -->
+	<div ng-if="username == 'fobbytommy' && authority_level == 9" class="modal fade" id="question_delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content modal_email_div">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+				</div>
+			<div class="modal-body">
+				Are you sure you want to delete this question?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-danger" ng-click="delete_question(delete_id)" data-dismiss="modal">Confirm Delete</button>
+			</div>
+			</div>
+		</div>
+	</div><!-- end of Question Delete Modal -->
+
+	<!-- Question Update Modal -->
+	<div ng-if="username == 'fobbytommy' && authority_level == 9" class="modal fade" id="question_update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content modal_email_div">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Update this Question</h4>
+				</div>
+				<form class="form-horizontal" ng-submit="update_question(gotQuestion._id)">
+					<div class="modal-body">
+						<!-- displaying topic errors if there are any. -->
+						<div ng-if="updateErrors">
+							<div ng-repeat="error in updateErrors" class="alert alert-danger fade in topicErrors">
+								<strong>Error!</strong> {{ error.message }}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="question" class="col-sm-2 control-label">Question</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="question" ng-value="updateQuestion.question" placeholder="{{ gotQuestion.question }}" ng-model="updateQuestion.question">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="answer" class="col-sm-2 control-label">Answer</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" rows="4" id="answer" placeholder="{{ gotQuestion.answer }}" ng-model="updateQuestion.answer"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div><!-- end of Question Update Modal -->
+
+</div><!-- end of .container -->

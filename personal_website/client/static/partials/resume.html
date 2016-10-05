@@ -1,0 +1,77 @@
+<div class="navbar-wrapper">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a id="navbar-brand" class="navbar-brand" href="#"><b>T</b><small>OMMY</small> <b>O</b><small>H</small></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#/home">home</a></li>
+						<li><a href="#/me">me</a></li>
+						<li id="active_font" class="active"><a href="#/resume">resume</a></li>
+						<li><a href="#/contact">contact</a></li>
+						<li class="dropdown">
+							<a href="#/resume" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">more <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#/skills">Skill Storage</a></li>
+								<li><a href="#/self">Self Q&A</a></li>
+								<li><a href="#/daily">Daily Plan</a></li>
+								<li><a href="#/about">About this website</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">My Other Websites</li>
+								<li><a><small>coming soon!</small></a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+            			<li ng-hide="login_status"><a href="#/login" ng-click="currentPage('/resume')"><i class="fa fa-user" aria-hidden="true"></i>   login</a></li>
+						<li ng-show="login_status"><a href="#/resume" ng-click="logout()"><i class="fa fa-user-times" aria-hidden="true"></i>   logout</a></li>
+          			</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div><!-- end of .navbar-wrapper -->
+
+
+<div class="container top_for_nav">
+	<flash-message class="" duration="4000" show-close="true"></flash-message>
+	<hr class="hr_style">
+	<div class="row resume_div">
+		<div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
+			<a class="btn btn-block btn-social btn-pinterest" target="_blank" href="https://drive.google.com/file/d/0B-cyVTiJNAJTUjlKaUlvZVVQVm8/view" ng-mouseover="styleReference()" ng-mouseleave="unstyleReference()">
+   				<i class="fa fa-file-text" aria-hidden="true"></i>View my resume
+ 			</a>
+		</div>
+	</div>
+	<div class="row resume_div">
+		<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+			<a class="btn btn-block btn-social btn-linkedin" target="_blank" href="https://www.linkedin.com/in/tommy-oh" ng-mouseover="styleReference()" ng-mouseleave="unstyleReference()">
+   				<i class="fa fa-linkedin-square" aria-hidden="true"></i>Visit my LinkedIn page
+ 			</a>
+		</div>
+	</div>
+	<div class="row resume_div">
+		<div class="col-lg-4 col-lg-offset-7 col-md-4 col-md-offset-7 col-sm-4 col-sm-offset-7">
+			<a class="btn btn-block btn-social btn-github" target="_blank" href="https://github.com/fobbytommy" ng-mouseover="styleReference()" ng-mouseleave="unstyleReference()">
+   				<i class="fa fa-github" aria-hidden="true"></i>Check my GitHub repos
+ 			</a>
+		</div>
+	</div>
+	<div class="row text-center references_div" ng-style="referenceStyle">
+		<p>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+			<i class="fa fa-star" aria-hidden="true"></i>
+		</p>
+		<h4>References are available upon a valid request.</h4>
+	</div>
+	<hr class="hr_style">
+</div><!-- /.container -->
