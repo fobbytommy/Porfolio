@@ -16,11 +16,11 @@
 	* Instead of communicating with the traditional HTTP requests and responses, both the client and the server listen for events, since the socket connections are __event-driven__.
 	* By tying __jQuery__ with every socket emission, the app can handle and trigger client-side socket events smoothly.
 	* Technologies used: _socket.io / jQuery / ejs / Node.js / Express / Bootstrap3 / JavaScript_
-* pac_bros
-	* ![Pac Bros Interface](https://drive.google.com/file/d/0B-cyVTiJNAJTZl91ekstTWlfZG8/view?usp=sharing)
+* __pac_bros__
 	* This is a game application, which was developed after _3rd week_ of the coding bootcamp.
-	* A simple game that is developed using the client-side language, __HTML / CSS / JavaScript__.
-	* Please note that the code has been left out untouched from that 3rd week to show what I could have achieved even without the knowledge of Object Oriented Programming.
+	* [Image of the Pac Bros Interface](https://drive.google.com/file/d/0B-cyVTiJNAJTZl91ekstTWlfZG8/view?usp=sharing)
+	* A simple game that is developed using the client-side languages, __HTML / CSS / JavaScript__.
+	* Please note that the code has been left out _untouched_ from that 3rd week to show what I could have achieved even without the knowledge of Object Oriented Programming.
 	* git clone and click 'index.html' to play.
 
 
