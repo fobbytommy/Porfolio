@@ -1,0 +1,133 @@
+
+body{
+	background-color: gray;
+	margin: 0;
+}
+div#board h1{
+	display:inline-block;
+	color: white;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 30px;
+	margin-left: 50px;
+	margin-right: 20px;
+	text-shadow: 0 1px 0 #ccc,
+	           0 2px 0 #c9c9c9,
+	           0 3px 0 #bbb,
+	           0 4px 0 #b9b9b9,
+	           0 5px 0 #aaa,
+	           0 6px 1px rgba(0,0,0,.1),
+	           0 0 5px rgba(0,0,0,.1),
+	           0 1px 3px rgba(0,0,0,.3),
+	           0 3px 5px rgba(0,0,0,.2),
+	           0 5px 10px rgba(0,0,0,.25),
+	           0 10px 10px rgba(0,0,0,.2),
+	           0 20px 20px rgba(0,0,0,.15);
+}
+div#board h3{
+	color: white;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+div.row div{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-bottom: -4px;
+}
+div.brick{
+	background-color:blue;
+}
+div.name{
+	background-color:blue;
+}
+div.coin{
+	background: url('../image/coin.gif');
+	background-repeat: no-repeat;
+	background-position: center; 
+	background-size: 38%;
+}
+div.cherry{
+	background: url('../image/cherry.gif');
+	background-repeat: no-repeat;
+		background-position: center; 
+		background-size: 50%;
+}
+div.poop{
+	background: url('../image/poop.gif');
+	background-repeat: no-repeat;
+		background-position: center; 
+		background-size: 45%;
+}
+div.empty{
+}
+div.tommy1{
+	background: url('../image/tommy1.jpeg');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+}
+div.tommy2{
+	background: url('../image/tommy2.jpeg');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+}
+div.tommy3{
+	background: url('../image/tommy3.jpeg');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+}
+div.tommy4{
+	background: url('../image/tommy4.jpeg');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+}
+div#pacman1{
+	background: url('../image/pacman2.gif');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: 80%;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+}
+div#pacman2{
+	background: url('../image/pacman2.gif');
+	background-repeat: no-repeat;
+		background-position: center;
+		background-size: 80%;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+}
+div.ghost1, div.ghost2, div.ghost3, div.ghost4{
+	width: 20px;
+		height: 20px;
+		position: absolute;
+}
+div#score{
+	border:1px solid white;
+	width: 30px;
+	height: 20px;
+	color: white;
+	padding: 7px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+	margin-left: 10px;
+}
+div#life{
+	border:1px solid white;
+	width: 30px;
+	height: 20px;
+	color: white;
+	padding: 7px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+	margin-left: 10px;
+}
