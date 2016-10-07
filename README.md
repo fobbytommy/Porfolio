@@ -21,7 +21,7 @@
 	* [Image of the Pac Bros Interface](https://drive.google.com/file/d/0B-cyVTiJNAJTZl91ekstTWlfZG8/view?usp=sharing)
 	* A simple game that is developed using the client-side languages, __HTML / CSS / JavaScript__.
 	* Please note that the code has been left out _untouched_ from that 3rd week to show what I could have achieved even without the knowledge of Object Oriented Programming.
-	* git clone and click 'index.html' to play.
+	* git clone https://github.com/fobbytommy/pacman and click 'index.html' to play.
 
 
 ### personal website
