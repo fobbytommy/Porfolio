@@ -21,6 +21,7 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 							"Javascript",
 							"HTML / HTML5",
 							"CSS / CSS3",
+							"SASS",
 							"Twitter Bootstrap",
 							"Git / Github & Terminal",
 							"AJAX", "APIs",
@@ -75,8 +76,8 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 	$scope.wishlist = {
 		technologies: 	[
 						],
-		skills:	[	"SASS",
-					"ReactJS"
+		skills:	[
+					"React.js"
 				]
 	};
 
@@ -94,5 +95,5 @@ app.controller('SkillStorageController', ['$scope', '$cookies', 'Flash', functio
 		Flash.clear(); // clear flash before putting new flash
 		Flash.create("success", "You have successfully logged out!", 4000, {}, true);
 	};
-	
+
 }]);
